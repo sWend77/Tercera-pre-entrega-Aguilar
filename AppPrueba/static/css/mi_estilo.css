@@ -1,0 +1,29 @@
+.cont-inicio{
+    margin-right: 150px;
+
+}
+
+.cont-login-register{
+    width: 270px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+footer{ 
+    margin-top: 120px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
