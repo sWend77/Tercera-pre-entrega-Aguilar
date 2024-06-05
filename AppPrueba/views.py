@@ -7,23 +7,29 @@ from django.template import loader
 
 def inicio (req):
     
-    plantilla = loader.get_template("index.html")
-    
-    doc = plantilla.render()
-    
-    return HttpResponse (doc) 
+    return render(req, "index.html",{})
 
-def registrarse (req, user, password): 
+def registro (req): 
     
-    users = Usuario(user = user, password = password)
-    users.save()
-    return HttpResponse(f"Usuario: {user} agregado exitosamente!")
+    return render(req, "registrarse.html",{})
 
-def iniciar_sesion(req, user, password):
+def musica(req):
     
-    users = Usuario (user = user , password = password)
-    users.save()
-    return HttpResponse("Iniciando sesion...")
+    return render(req, "musica.html",{})
+
+def login(req):
+    
+    return render(req, "iniciar_sesion.html",{})
+
+def artistas(req):
+    
+    return render(req, "artistas.html",{})
+
+def instrumentos(req):
+    
+    return render(req, "instrumentos.html",{})
+
+
 
 
     
