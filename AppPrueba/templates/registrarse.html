@@ -6,9 +6,12 @@
     Registrese a continuacion
 </h1>
 
-<input type="email" placeholder="email">
-<input type="password" placeholder="contraseña">
-<input type="submit" value="Registrar">
+<form action="{% url 'Registro' %}" method="post">{% csrf_token %}
+    <p>Nombre de usuario: <input type="text" placeholder="username" name="username"></p>
+    <p>Correo electronico: <input type="email" placeholder="email" name="email"></p>
+    <p>Contraseña: <input type="password" placeholder="password" name="password"></p>
+    <button type="submit">Registrar</button>
+</form>
 
 {% endblock contenido_variable %}
 

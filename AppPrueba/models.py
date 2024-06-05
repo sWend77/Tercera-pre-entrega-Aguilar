@@ -4,29 +4,48 @@ from django.db import models
 
 class Usuario(models.Model):
 
-    user = models.CharField(max_length=100)
-    password = models.CharField(max_length=100)
+    user = models.CharField(max_length=20)
+    email = models.EmailField(null=True)
+    password = models.CharField(max_length=20)
+    
+    def __str__ (self):
+    
+        return f"{self.user}"
     
 class Musica(models.Model):
     
-    title = models.CharField(max_length=30)
+    name_song = models.CharField(max_length=30)
     artist = models.CharField(max_length=30)
     gender = models.CharField(max_length=20)
     release_year = models.IntegerField()
+
+    def __str__(self):
+        
+        return f"{self.name_song}"
     
-class Artista():
+class Artista(models.Model):
     
     name = models.CharField(max_length=20)
     country = models.CharField(max_length=20)
-    birthdate = models.CharField(max_length=30)
+    birthdate = models.DateField(max_length=30)
     important_albums = models.CharField(max_length=40)
     
-class Instrumento():
+    def __str__(self):
+    
+        return f"{self.name}"
+    
+    
+    
+class Instrumento(models.Model):
     
     name = models.CharField(max_length=20)
     brand = models.CharField(max_length=25)
     model = models.CharField(max_length=25)
     number_series = models.IntegerField()
+    
+    def __str__(self):
+    
+        return f"{self.name}"
     
     
 

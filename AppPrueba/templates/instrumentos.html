@@ -3,9 +3,16 @@
 {% block contenido_variable %}
 
 <h1>
-    HOLA, SOY LA SECCION DE INSTRUMENTOS
+    Agregue un instrumento:
 </h1>
 
+<form action="{% url 'Instrumentos' %}" method="post">{% csrf_token %}
+    <p>Tipo de instrumento: <input type="text" placeholder="ingresar nombre" name="name"></p>
+    <p>Marca: <input type="text" placeholder="ingresar marca" name="brand"></p>
+    <p>Modelo: <input type="text" placeholder="ingresar modelo" name="model"></p>
+    <p>Numero de serie: <input type="number" placeholder="agregar nro de serie" name="number_series"></p>
+    <button type="submit">Agregar</button>
+</form>
 
 
 {% endblock contenido_variable%}
