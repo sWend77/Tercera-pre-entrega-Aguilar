@@ -1,0 +1,17 @@
+{% extends "padre.html" %}
+
+{% block contenido_variable %}
+
+<h1>
+    Search
+</h1>
+
+<form action="{% url 'BuscarUsuario' %}" method="get">
+    
+    <p>Buscar datos de usuario: <input type="text" name="user"></p>
+    <button type="submit">Buscar</button>
+
+</form>
+
+
+{% endblock contenido_variable%}

@@ -7,10 +7,9 @@
 </h1>
 
 <form action="{% url 'Musica' %}" method="post">{% csrf_token %}
-    <p>Nombre de la cancion: <input type="text" placeholder="ingresar nombre" name="name_song"></p>
-    <p>Artista/Banda: <input type="text" placeholder="ingresar artista" name="artist"></p>
-    <p>Genero: <input type="text" placeholder="ingresar genero" name="gender"></p>
-    <p>Año de lanzamiento: <input type="number" name="release_year"></p>
+    
+    {{mi_formulario.as_p}}
+    
     <button type="submit">Agregar</button>
 </form>
 

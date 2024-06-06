@@ -7,10 +7,10 @@
 </h1>
 
 <form action="{% url 'Registro' %}" method="post">{% csrf_token %}
-    <p>Nombre de usuario: <input type="text" placeholder="username" name="username"></p>
-    <p>Correo electronico: <input type="email" placeholder="email" name="email"></p>
-    <p>Contraseña: <input type="password" placeholder="password" name="password"></p>
+    
+    {{mi_formulario.as_p}}
     <button type="submit">Registrar</button>
+
 </form>
 
 {% endblock contenido_variable %}

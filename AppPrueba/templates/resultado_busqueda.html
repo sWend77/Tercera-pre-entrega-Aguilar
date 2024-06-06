@@ -1,0 +1,15 @@
+{% extends "padre.html" %}
+
+{% block contenido_variable %}
+
+<h3>Resultado de la busqueda...</h3>
+
+<p>Realizamos la busqueda con el usuario ingresado</p>
+
+<p>Usuario: {{usuario.user}}</p>
+<p>El email es: {{usuario.email}}</p>
+<p>Contraseña: "{{usuario.password}}"</p>
+
+
+
+{% endblock contenido_variable%}
