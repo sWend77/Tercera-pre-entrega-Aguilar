@@ -1,7 +1,7 @@
 <nav class="navbar navbar-light bg-light static-top">
     <div class="container">
         <div class="cont-inicio">
-            <a class="navbar-brand" href="{% url 'Inicio' %}">MusecK</a>
+            <a class="navbar-brand" href="{% url 'Inicio' %}">Home</a>
         </div>
         <a class="navbar-brand" href="{% url 'ListaGeneros' %}">Music</a>
         <a class="navbar-brand" href="{% url 'Artistas' %}">Artists</a>
@@ -9,8 +9,11 @@
         <a class="navbar-brand" href="{% url 'Busqueda' %}">Search</a>
         {% if user.is_authenticated %} 
             <p>
-                Usuario: {{user.username}}
+                Sesion: {{user.username}}
             </p>
+            <a href="{% url 'EditarPerfil' %}">
+                <button type="submit">Editar Perfil</button>
+            </a>
             <form action="{% url 'LogoutUser' %}" method="post"> {% csrf_token %}
                 <button type="submit">Logout</button>
             </form> 

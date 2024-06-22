@@ -7,7 +7,7 @@ from django.views.generic import ListView
 from django.views.generic.detail import DetailView
 from django.views.generic.edit import DeleteView, UpdateView, CreateView
 from django.contrib.auth import  authenticate, login, logout
-from django.contrib.auth.forms import AuthenticationForm, UserCreationForm
+from django.contrib.auth.forms import AuthenticationForm, UserCreationForm, UserChangeForm
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
 
@@ -121,6 +121,32 @@ def registro (req):
     else:
         mi_formulario = UserCreationForm()
         return render (req, "registrarse.html",{"mi_formulario": mi_formulario})    
+
+@login_required    
+def editar_perfil (req):
+    
+    if req.method == "POST":
+        
+        usuario = req.user
+        
+        mi_formulario = UsereEditForm(req.POST, instance = req.user)
+        
+        if mi_formulario.is_valid():
+            
+            data = mi_formulario.cleaned_data
+            
+            usuario.first_name = data["first_name"]
+            usuario.last_name = data["last_name"]
+            usuario.email = data["email"]
+            
+            usuario.save()
+            
+            return render(req, "index.html" , {"message": "Datos Actualizados con exito!"})       
+            
+        else: return render (req, "index.html" , {"message":"Datos invalidos"})
+    else:
+        mi_formulario = UsereEditForm(instance = req.user)
+        return render (req, "editar-perfil.html",{"mi_formulario": mi_formulario})    
 
 #Seccion Musica--------------------------------------------------------------------------------------------------------------
 

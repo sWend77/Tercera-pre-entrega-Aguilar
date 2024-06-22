@@ -1,5 +1,6 @@
 from django import forms
-
+from django.contrib.auth.forms import UserChangeForm
+from django.contrib.auth.models import User
 class Formulario_registro (forms.Form):
 
     username = forms.CharField()
@@ -27,8 +28,13 @@ class Formulario_instrumento(forms.Form):
     model = forms.CharField()
     number_series = forms.IntegerField()
 
-
-
+class UsereEditForm (UserChangeForm):
+    
+    password = forms.CharField(help_text="", widget = forms.HiddenInput(), required= False)
+    
+    class Meta:
+        model = User
+        fields = ["email", "first_name", "last_name"]
 
 
 

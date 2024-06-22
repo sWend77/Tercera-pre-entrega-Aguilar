@@ -18,4 +18,5 @@ urlpatterns = [
     path("delete-genero/<pk>", DeleteGenero.as_view(), name = "EliminarGenero"),
     path("edit-genero/<pk>", UpdateGenero.as_view(), name = "EditarGenero"),
     path("logout/", LogoutView.as_view(template_name = "logout.html"), name = "LogoutUser"),
+    path("edit-perfil/", editar_perfil, name = "EditarPerfil"),
 ]
