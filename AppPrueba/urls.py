@@ -19,4 +19,5 @@ urlpatterns = [
     path("edit-genero/<pk>", UpdateGenero.as_view(), name = "EditarGenero"),
     path("logout/", LogoutView.as_view(template_name = "logout.html"), name = "LogoutUser"),
     path("edit-perfil/", editar_perfil, name = "EditarPerfil"),
+    path("agregar-avatar/", agregar_avatar, name = "AgregarAvatar"),
 ]

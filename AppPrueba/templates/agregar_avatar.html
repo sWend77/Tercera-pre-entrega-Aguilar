@@ -1,0 +1,35 @@
+{% extends "padre.html" %}
+
+{% block contenido_variable %}
+
+    <h1>
+        Agregar avatar:
+    </h1>
+    
+    {{mi_formulario.as_p}}
+    
+    <form action="{% url 'AgregarAvatar' %}" method="post" enctype="multipart/form-data"> {% csrf_token %} 
+        
+        {{mi_formulario.as_p}}
+        <button type="submit">Crear avatar</button>
+    
+    </form>
+   
+{% endblock contenido_variable%}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

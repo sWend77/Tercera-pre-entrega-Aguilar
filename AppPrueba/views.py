@@ -11,9 +11,18 @@ from django.contrib.auth.forms import AuthenticationForm, UserCreationForm, User
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
 
+
 def inicio (req):
     
-    return render(req, "index.html",{})
+    try:
+        avatar = Avatar.objects.get(user=req.user.id)
+        return render(req, "index.html", {"url" : avatar.imagen.url})
+    except:
+        return render(req, "index.html", {})
+    
+    
+    
+    return render(req, "index.html", {"url" : avatar.imagen.url})
 
 def musica(req):
     
@@ -138,15 +147,50 @@ def editar_perfil (req):
             usuario.first_name = data["first_name"]
             usuario.last_name = data["last_name"]
             usuario.email = data["email"]
+            usuario.set_password(data["password2"])
             
             usuario.save()
             
             return render(req, "index.html" , {"message": "Datos Actualizados con exito!"})       
             
-        else: return render (req, "index.html" , {"message":"Datos invalidos"})
+        else: return render (req, "editar-perfil.html",{"mi_formulario": mi_formulario}) 
     else:
         mi_formulario = UsereEditForm(instance = req.user)
-        return render (req, "editar-perfil.html",{"mi_formulario": mi_formulario})    
+        return render (req, "editar-perfil.html",{"mi_formulario": mi_formulario})
+    
+@login_required
+def agregar_avatar (req):
+    
+    if req.method == "POST":
+        
+        mi_formulario = FormularioAvatar(req.POST , req.FILES)
+        
+        if mi_formulario.is_valid():
+            
+            data = mi_formulario.cleaned_data
+            
+            avatar = Avatar(user=req.user,imagen=data['imagen'])
+            
+            avatar.save()
+            
+            return render(req, "index.html" , {"message": "Avatar cargado con exito"})       
+            
+        else: return render (req, "index.html" , {"message":"Ocurrio un error al cargar el avatar"})
+    else:
+        
+        mi_formulario = FormularioAvatar()
+        
+        return render (req, "agregar_avatar.html",{ "mi_formulario": mi_formulario})    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+        
 
 #Seccion Musica--------------------------------------------------------------------------------------------------------------
 

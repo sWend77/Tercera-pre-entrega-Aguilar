@@ -1,6 +1,6 @@
 from django.db import models
+from django.contrib.auth.models import User
 
-# Create your models here.
 
 class Usuario(models.Model):
 
@@ -61,9 +61,12 @@ class Producto (models.Model):
     brand = models.CharField (max_length=20)
     price = models.IntegerField ()
     
+class Avatar (models.Model):
     
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    imagen = models.ImageField(upload_to='avatares', blank=True , null=True)
     
-
+   
 
 
 
