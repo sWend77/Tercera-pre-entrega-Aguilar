@@ -4,6 +4,6 @@ from AppPrueba.models import *
 # Register your models here.
 
 admin.site.register(Usuario)
-admin.site.register(Musica)
+admin.site.register(Genero)
 admin.site.register(Artista)
-admin.site.register(Instrumento)
+admin.site.register(Producto)

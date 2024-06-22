@@ -1,0 +1,16 @@
+{% extends "padre.html" %}
+
+{% block contenido_variable %}
+
+    <h1>
+        Agrega el genero:
+    </h1>
+    
+    <form action="{% url 'CrearGenero' %}" method="post">{% csrf_token %}
+        
+        {{form.as_p}}
+        <button type="submit">Agregar genero</button>
+        
+    </form>
+
+{% endblock contenido_variable %} 

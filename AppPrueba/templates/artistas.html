@@ -3,14 +3,14 @@
 {% block contenido_variable %}
 
 <h1>
-    Agregue un artista o banda que te guste:
+    Generos:
 </h1>
 
 <form action="{% url 'Artistas' %}" method="post">{% csrf_token %}
     
     {{mi_formulario.as_p}}
     
-    <button type="submit">Agregar</button>
+    <button type="submit">Agregar artista</button>
 </form>
 
 

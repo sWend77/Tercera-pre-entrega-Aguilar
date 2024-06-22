@@ -1,0 +1,15 @@
+{% extends "padre.html" %}
+
+{% block contenido_variable %}
+
+    <h1>
+        Inicie sesion a continuacion:
+    </h1>
+    
+    <form action="{% url 'IniciarSesion' %}" method="post">{% csrf_token %}
+        {{mi_formulario.as_p}}
+        <button type="submit">Iniciar sesion</button>
+    </form>
+
+
+{% endblock contenido_variable%}

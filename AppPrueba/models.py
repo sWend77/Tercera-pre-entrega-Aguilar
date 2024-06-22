@@ -47,11 +47,22 @@ class Instrumento(models.Model):
     
         return f"{self.name}"
     
+class Genero (models.Model):   
+
+    name = models.CharField(max_length=30)
     
+    def __str__(self):
+    
+        return f"{self.name}"
 
-
-
-
+class Producto (models.Model):
+    
+    name = models.CharField(max_length=20)
+    brand = models.CharField (max_length=20)
+    price = models.IntegerField ()
+    
+    
+    
 
 
 

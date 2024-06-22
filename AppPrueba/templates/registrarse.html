@@ -8,7 +8,9 @@
 
 <form action="{% url 'Registro' %}" method="post">{% csrf_token %}
     
+    
     {{mi_formulario.as_p}}
+    
     <button type="submit">Registrar</button>
 
 </form>

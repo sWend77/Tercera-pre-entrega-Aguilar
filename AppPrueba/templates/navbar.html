@@ -1,0 +1,27 @@
+<nav class="navbar navbar-light bg-light static-top">
+    <div class="container">
+        <div class="cont-inicio">
+            <a class="navbar-brand" href="{% url 'Inicio' %}">MusecK</a>
+        </div>
+        <a class="navbar-brand" href="{% url 'ListaGeneros' %}">Music</a>
+        <a class="navbar-brand" href="{% url 'Artistas' %}">Artists</a>
+        <a class="navbar-brand" href="{% url 'Instrumentos' %}">Instrument shop</a>
+        <a class="navbar-brand" href="{% url 'Busqueda' %}">Search</a>
+        {% if user.is_authenticated %} 
+            <p>
+                Usuario: {{user.username}}
+            </p>
+            <form action="{% url 'LogoutUser' %}" method="post"> {% csrf_token %}
+                <button type="submit">Logout</button>
+            </form> 
+        {%else%}
+            <div class="cont-login-register">
+            
+                <a class="btn btn-primary" href="{% url 'Registro' %}">Sign up</a>
+                <a class="btn btn-primary" href="{% url 'IniciarSesion' %}">Log in</a>
+            
+            </div>
+        {% endif %}
+        
+    </div>
+</nav>

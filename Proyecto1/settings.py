@@ -125,3 +125,6 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
 # "C:/Users/diego/Documents/Visual Studio Code/proyecto-python/Proyecto1/templates"
+
+LOGIN_URL = '/app-include/login_view/'
+

@@ -1,0 +1,28 @@
+{% extends "padre.html" %}
+
+{% block contenido_variable %}
+
+    <h1>
+        Lista generos:
+    </h1>
+
+    <ul>
+        {% for genero in generos %}
+        <li>
+            <a href="{% url 'DetalleGeneros' genero.id %}">
+                {{ genero }}
+            </a>
+            <a href="{% url 'EliminarGenero' genero.id %}">
+                <button type="button">Eliminar</button>
+            </a>
+            <a href="{% url 'EditarGenero' genero.id %}">
+                <button type="button">Editar</button>
+            </a>
+        </li>
+        {% endfor %}
+    </ul>
+    <a href="{% url 'CrearGenero' %}">
+        <button type="submit">Crear genero</button>
+    </a>
+
+{% endblock contenido_variable %} 
