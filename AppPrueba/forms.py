@@ -60,12 +60,14 @@ class FormularioAvatar (forms.ModelForm):
         model = Avatar
         fields = ('imagen',)
 
+class FormularioCategorias(forms.Form):
+    
+    class Meta:
+        model =  CategoriaInstrumentos
+        fields = ["nombre"]
 
-
-
-
-
-
+class BusquedaForm(forms.Form):
+    query = forms.CharField(label='Buscar', max_length=100)
 
 
 

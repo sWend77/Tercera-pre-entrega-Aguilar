@@ -34,19 +34,6 @@ class Artista(models.Model):
     
         return f"{self.name}"
     
-    
-    
-class Instrumento(models.Model):
-    
-    name = models.CharField(max_length=20)
-    brand = models.CharField(max_length=25)
-    model = models.CharField(max_length=25)
-    number_series = models.IntegerField()
-    
-    def __str__(self):
-    
-        return f"{self.name}"
-    
 class Genero (models.Model):   
 
     name = models.CharField(max_length=30)
@@ -55,26 +42,34 @@ class Genero (models.Model):
     
         return f"{self.name}"
 
-class Producto (models.Model):
-    
-    name = models.CharField(max_length=20)
-    brand = models.CharField (max_length=20)
-    price = models.IntegerField ()
-    
 class Avatar (models.Model):
     
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     imagen = models.ImageField(upload_to='avatares', blank=True , null=True)
     
-   
 
+class Producto(models.Model):
+    
+    name = models.CharField (max_length=50)
+        
+class Instrumento(models.Model):
+    nombre = models.CharField(max_length=100)
+    cantidad_disponible = models.IntegerField(default=0)
+    precio = models.DecimalField(max_digits=10, decimal_places=2)
+    marca = models.CharField(max_length=50, default='Sin marca')
+    imagen = models.ImageField(upload_to='instrumentos/', null=True, blank=True)
+    modelo = models.CharField(max_length=50)
+    
+    def __str__(self):
+        return self.nombre
 
+class CategoriaInstrumentos (models.Model):
+    
+    nombre = models.CharField(max_length=50)
 
-
-
-
-
-
+    def __str__(self):
+        return self.nombre
+    
 
 
 

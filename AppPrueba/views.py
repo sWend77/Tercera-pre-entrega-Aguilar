@@ -182,11 +182,26 @@ def agregar_avatar (req):
         
         return render (req, "agregar_avatar.html",{ "mi_formulario": mi_formulario})    
     
+def about (req):
     
+    return render (req, 'about.html', {})
     
+def buscar_instrumento(req):
     
+    form = BusquedaForm()
     
-    
+    if req.method == 'POST':
+        
+        form = BusquedaForm(req.POST)
+        
+        if form.is_valid():
+            
+            formulario= form.cleaned_data['formulario']
+            
+        return render(req, "index.html", {"message" : "Busqueda exitosa"})
+
+    else:
+        return render(req, 'buscar.html', {'form': form})
     
     
     
@@ -262,13 +277,24 @@ class DeleteProducto (DeleteView):
     template_name = "delete-producto.html"
     success_url = "index.html"
     
+class CrearCategoriaInstrumentos(CreateView):
+    
+    model= CategoriaInstrumentos
+    template_name = "crear-categoria.html"
+    fields = ["nombre"]
+    success_url = "/app-include/agregar-categoria/"
 
+class ListaCategoria(ListView):
+    
+    model = CategoriaInstrumentos
+    template_name = "lista-categorias.html"
+    context_object_name = "categorias"
 
-
-
-
-
-
+class DetailCategoria(DetailView):
+    
+    model = CategoriaInstrumentos
+    template_name = "detail-categoria.html"
+    context_object_name = "detalle"
 
 
 

@@ -2,10 +2,215 @@
 
 {% block contenido_variable %}
 
-    <h1>
-        Seccion de detalle de generos
-    </h1>
 
+    {% if detalle.id == 1 %}
+        <h1>
+            Rock Clasico
+        </h1>
+        <p>
+            El rock clásico es un género musical que emerge en la década de 1960 y se consolida a lo largo de los años 70, dejando una huella indeleble en la historia de la música popular. Este estilo es reconocido por sus letras profundas y a menudo introspectivas, acompañadas de riffs de guitarra potentes y solos memorables. Se caracteriza por su energía cruda y la habilidad de los músicos para fusionar elementos de blues, jazz y música folk en un formato accesible y atractivo para las masas.
+
+            Bandas icónicas del rock clásico incluyen a Led Zeppelin, conocidos por álbumes influyentes como "Led Zeppelin IV" (1971), que incluye la épica "Stairway to Heaven", una canción que ha alcanzado un estatus mítico en la historia del rock. Led Zeppelin también es celebrado por sus potentes actuaciones en vivo y la virtuosidad instrumental de sus miembros, especialmente el guitarrista Jimmy Page y el cantante Robert Plant.
+
+            The Rolling Stones es otra banda emblemática del rock clásico, famosa por su longevidad y su capacidad para evolucionar con los tiempos. Álbumes como "Sticky Fingers" (1971) y "Exile on Main St." (1972) son testimonios de su influencia duradera, con canciones como "Paint It Black" y "Sympathy for the Devil" que han dejado una marca indeleble en la cultura musical.
+
+            Pink Floyd revolucionó el rock clásico con su enfoque experimental y su capacidad para crear álbumes conceptuales que se convirtieron en monumentos musicales. "The Dark Side of the Moon" (1973) es quizás su obra maestra más conocida, con temas como "Money" y "Time" que exploran temas existenciales y sociales de una manera que solo esta banda podría hacer.
+
+            Deep Purple, con su enérgico "Smoke on the Water" y su fusión distintiva de rock y elementos clásicos, también dejó una marca indeleble en el género. Otros artistas como The Who, con su álbum "Who's Next" (1971) y su himno "Baba O'Riley", y Queen, liderados por la carismática voz de Freddie Mercury y conocidos por canciones como "Bohemian Rhapsody", también son pilares del rock clásico.
+
+            En resumen, el rock clásico no solo definió una época musical, sino que sigue siendo una influencia profunda en la música contemporánea. Sus bandas y álbumes no solo son venerados por su innovación musical y habilidad técnica, sino también por su capacidad para conectar emocionalmente con generaciones de oyentes a través de letras poderosas y composiciones atemporales.
+        </p>
+
+    {% elif detalle.id == 2%}
+        <h1>
+            Cumbia
+        </h1>
+        <p>
+            La cumbia es un género musical popular originario de Colombia que se ha extendido por toda América Latina, cada país ha aportado su propio estilo y variante a este género. En sus inicios, la cumbia tradicional estaba marcada por su ritmo contagioso y la fusión de elementos africanos, indígenas y españoles. Con el tiempo, la cumbia ha evolucionado y se ha diversificado, adaptándose a los gustos y contextos locales.
+
+            Bandas icónicas como Los Ángeles Azules han popularizado la cumbia moderna en México y más allá, con álbumes como "Cómo Te Voy a Olvidar" y "De Plaza en Plaza". Canciones como "17 Años" y "El Listón de tu Pelo" se han convertido en himnos de fiestas y eventos sociales en toda Latinoamérica. Por otro lado, Grupo Niche ha llevado la cumbia colombiana a nuevos niveles con éxitos como "Cali Pachanguero" y "Gotas de Lluvia", fusionando elementos de salsa y jazz en su estilo característico.
+
+            En Argentina, Los Palmeras han dejado una marca indeleble con su estilo único de cumbia santafesina, destacándose álbumes como "La Suavecita" y "Soy Parrandero". Su canción "Bombón Asesino" es un clásico que no puede faltar en ninguna celebración.
+
+            Estas bandas y muchas otras han contribuido a la riqueza y diversidad de la cumbia, manteniendo viva una tradición musical que sigue siendo querida y bailada en todo el continente.
+        </p>
+    {% elif detalle.id == 3 %}
+        <h1>
+            Reggaeton
+        </h1>
+        <p> 
+            El reguetón es un género musical urbano que surge en Puerto Rico a finales del siglo XX y se convierte en un fenómeno global en las décadas siguientes. Caracterizado por su ritmo contagioso, influencias de dancehall y letras que abordan temas de fiesta, amor, desamor y la vida en la calle, el reguetón ha revolucionado la música latina contemporánea.
+
+            Uno de los pioneros del reguetón es Daddy Yankee, conocido como el "Big Boss", quien alcanzó fama internacional con su álbum "Barrio Fino" (2004). Canciones como "Gasolina" se convirtieron en himnos del género y abrieron las puertas para que artistas como Don Omar también conquistaran las listas de éxitos con álbumes como "The Last Don" (2003).
+
+            Otro ícono del reguetón es Wisin & Yandel, conocidos por su habilidad para fusionar reguetón con otros géneros como la música electrónica y el pop latino. Álbumes como "Pa'l Mundo" (2005) catapultaron su carrera y colaboraciones con artistas como Jennifer Lopez en "Follow the Leader" demostraron la influencia global del género.
+
+            Nicky Jam, con su estilo único y sus colaboraciones con artistas internacionales, también ha dejado una huella significativa en el reguetón moderno. Canciones como "El Perdón" con Enrique Iglesias se convirtieron en éxitos mundiales, mostrando la versatilidad del género para llegar a audiencias de diferentes culturas y países.
+
+            Bad Bunny ha llevado el reguetón a nuevas alturas con su enfoque fresco y su capacidad para mezclar géneros como el trap y el hip hop con elementos del reguetón tradicional. Álbumes como "YHLQMDLG" (2020) y "El Último Tour Del Mundo" (2020) han redefinido las expectativas del género y han inspirado a una nueva generación de artistas urbanos.
+
+            En resumen, el reguetón no solo ha dominado las listas de éxitos a nivel mundial, sino que ha redefinido la música latina contemporánea con su energía contagiosa, ritmos bailables y letras que resuenan con millones de fanáticos alrededor del mundo.
+        </p>   
+    {% elif detalle.id == 4 %}
+        <h1>
+            Heavy Metal
+        </h1>
+        <p> 
+            El heavy metal es un género musical que se originó a finales de la década de 1960 y principios de la década de 1970 en el Reino Unido y Estados Unidos. Conocido por su potente sonido distorsionado, ritmos rápidos y letras a menudo cargadas de temas oscuros y controversiales, el heavy metal ha cultivado una base de fanáticos apasionados en todo el mundo.
+
+            Una de las bandas pioneras del heavy metal es Black Sabbath, liderada por el icónico Ozzy Osbourne. Su álbum homónimo "Black Sabbath" (1970) es considerado uno de los primeros álbumes del género y estableció el sonido distintivo que definiría el metal en las décadas siguientes. Canciones como "Paranoid" y "Iron Man" se han convertido en himnos del metal y siguen siendo parte del repertorio de bandas y fanáticos.
+
+            Iron Maiden es otra banda emblemática del heavy metal británico, conocida por sus complejas composiciones musicales y las icónicas ilustraciones de sus álbumes. Álbumes como "The Number of the Beast" (1982) y "Powerslave" (1984) destacan por su fusión de velocidad, melodía y letras que exploran temas desde lo épico hasta lo introspectivo.
+
+            Metallica, originaria de Estados Unidos, es una de las bandas más influyentes del heavy metal y el thrash metal. Álbumes como "Master of Puppets" (1986) y "Metallica" (1991), conocido como "The Black Album", son ejemplos de su capacidad para innovar y atraer a audiencias masivas con canciones como "Enter Sandman" y "Nothing Else Matters".
+
+            Otras bandas como Judas Priest, con su estética distintiva y álbumes como "British Steel" (1980) y "Painkiller" (1990), así como Slayer con su enfoque agresivo y álbumes como "Reign in Blood" (1986), han dejado una marca indeleble en el heavy metal, elevando el género a nuevas alturas de velocidad y intensidad.
+
+            En resumen, el heavy metal no solo es un género musical, sino una cultura global con una base de seguidores devotos que valoran su energía cruda, habilidad técnica y la capacidad de las bandas para transmitir emociones profundas a través de su música.
+        </p>  
+    {% elif detalle.id == 14 %}
+        <h1>
+            Blues
+        </h1>
+        <p> 
+            El blues es un género musical que se originó en el sur de Estados Unidos a finales del siglo XIX y principios del siglo XX, influenciado por la música africana, el trabajo de campo afroamericano y los cantos espirituales. Conocido por su estructura de 12 compases y su expresión emocional profunda, el blues es un testimonio de la experiencia humana, desde la tristeza y la melancolía hasta la esperanza y la redención.
+
+            Robert Johnson es una figura legendaria del blues, conocido por su destreza en la guitarra y su influencia duradera en el género. Su leyenda se extiende a álbumes como "King of the Delta Blues Singers" (1961), que recopila muchas de sus grabaciones originales. Canciones como "Cross Road Blues" y "Hellhound on My Trail" son ejemplos de su habilidad para capturar la angustia y la búsqueda espiritual en su música.
+
+            Muddy Waters, conocido como el "padre del blues moderno", fue fundamental para llevar el blues del Delta de Mississippi a Chicago, donde se electrificó y se expandió. Álbumes como "Electric Mud" (1968) y canciones como "Mannish Boy" son emblemáticos de su poderosa voz y su habilidad para mezclar el blues tradicional con el sonido urbano y contemporáneo.
+
+            B.B. King, con su estilo único de tocar la guitarra y su carismática presencia escénica, elevó el blues al estatus de música popular. Álbumes como "Live at the Regal" (1965) capturan su habilidad para conectar con la audiencia a través de canciones como "The Thrill Is Gone", que se ha convertido en un estándar del blues.
+
+            El blues ha evolucionado a lo largo de los años, abrazando diversas formas y estilos regionales como el blues de Chicago, el blues del Delta y el blues eléctrico. Artistas como Eric Clapton, Stevie Ray Vaughan y Bonnie Raitt han llevado el blues a nuevas audiencias y continúan siendo influencias importantes en la música contemporánea.
+
+            En resumen, el blues es mucho más que un género musical; es una expresión profundamente humana de la lucha, la pasión y la resistencia, que sigue resonando con oyentes de todas las generaciones y culturas en todo el mundo.
     
+    {% elif detalle.id == 15 %}
+        <h1>
+            Reggae
+        </h1>
+        <p>
+            El reggae es un género musical que se originó en Jamaica a fines de la década de 1960. Con raíces en el ska, el rocksteady y otros estilos caribeños, el reggae se destaca por su ritmo distintivo y su mensaje social y espiritual profundo. Es conocido por su carácter relajado y su capacidad para transmitir mensajes de amor, paz, justicia y resistencia.
+
+            Bob Marley es sin duda el ícono más reconocido del reggae. Con álbumes como "Catch a Fire" (1973) y "Exodus" (1977), Marley y su banda, The Wailers, llevaron el reggae a audiencias globales con himnos como "No Woman, No Cry", "Buffalo Soldier" y "Redemption Song". Su música no solo definió el género, sino que también se convirtió en un símbolo de la lucha por la liberación y la unidad.
+
+            Peter Tosh, también miembro original de The Wailers, se destacó por su enfoque más político y revolucionario del reggae. Álbumes como "Legalize It" (1976) abordaron temas de justicia social y derechos humanos con canciones como "Equal Rights" y "Legalize It", que se convirtieron en himnos para movimientos de reforma.
+
+            Jimmy Cliff es otro pionero del reggae, conocido por éxitos como "Many Rivers to Cross" y su papel protagónico en la película "The Harder They Come" (1972), que ayudó a popularizar el género a nivel internacional y solidificar su lugar en la cultura popular.
+
+            El reggae ha evolucionado con el tiempo, dando lugar a subgéneros como el dancehall y el reggae roots, cada uno con sus propias características y temas. Artistas contemporáneos como Damian Marley, Chronixx y Protoje continúan llevando el reggae a nuevas alturas mientras mantienen vivas las tradiciones y el mensaje del género.
+
+            En resumen, el reggae no es solo música; es un movimiento cultural que celebra la vida, la justicia y la unidad global. Su ritmo distintivo y su mensaje espiritual han resonado en todo el mundo, inspirando a generaciones de oyentes a través de su poderosa conexión con la experiencia humana.
+        </p>
+    {% elif detalle.id == 20 %}       
+        <h1>
+            Electro
+        </h1>
+        <p>
+            El electro, abreviatura de "electro-funk", es un género musical que emergió en la década de 1980, influido por el funk, el hip-hop y la música electrónica. Se caracteriza por su uso prominente de sintetizadores, cajas de ritmos y secuenciadores, creando un sonido futurista y bailable que ha dejado una marca indeleble en la música popular.
+
+            Uno de los pioneros del electro fue Afrika Bambaataa, quien junto a su grupo Soulsonic Force, lanzó "Planet Rock" en 1982. Esta canción fusionó elementos de funk, rock y electrónica, sentando las bases del electro y del hip-hop electrónico.
+            
+            Kraftwerk, originarios de Alemania, también fueron fundamentales en el desarrollo del electro con álbumes como "Computer World" (1981). Su enfoque en la música electrónica y las letras que exploran la relación entre el hombre y la tecnología han inspirado a generaciones de músicos en todo el mundo.
+            
+            El electro se convirtió en un fenómeno global a finales de los años 80 y principios de los 90, con artistas como Egyptian Lover, Mantronix y Juan Atkins, conocido como el "Padrino del Techno", quien con su proyecto Cybotron, lanzó "Clear" en 1983, un tema seminal que fusionó el electro con el techno emergente.
+            
+            En las décadas siguientes, el electro ha evolucionado y se ha diversificado, influyendo en géneros como el EDM (Electronic Dance Music) y el synthwave. Artistas contemporáneos como Justice, Daft Punk y The Chemical Brothers han llevado el electro a nuevas alturas, mezclando su estética retro futurista con beats irresistibles y melodías infecciosas.
+            
+            En resumen, el electro es más que un género musical; es una celebración de la creatividad y la innovación tecnológica. Su influencia perdura en la música electrónica moderna, recordándonos constantemente la capacidad del sonido electrónico para conectar culturas y generaciones en una experiencia de baile y reflexión sonora.
+        </p>
+    {% elif detalle.id == 30 %}  
+        <h1>
+            Indie
+        </h1>
+        <p>
+            El indie, abreviatura de "independiente", es un género musical que se distingue por su enfoque autónomo y su rechazo a las convenciones comerciales de la industria musical. Surgió a finales de los años 70 y principios de los 80 como una respuesta a la comercialización del punk rock y la new wave, con bandas que buscaban mantener un control creativo total sobre su música y su imagen.
+
+            Uno de los precursores del indie fue The Smiths, liderados por el carismático vocalista Morrissey y el talentoso guitarrista Johnny Marr. Con álbumes como "The Queen Is Dead" (1986), The Smiths combinaron letras introspectivas con guitarras jangle pop, creando un sonido que resonó entre una generación de jóvenes que buscaban una alternativa a la música pop convencional.
+            
+            En la década de 1990, el indie experimentó un renacimiento con el movimiento britpop, encabezado por bandas como Oasis y Blur en el Reino Unido. Oasis, con su álbum "Definitely Maybe" (1994), y Blur, con "Parklife" (1994), revitalizaron el interés por el indie con himnos que capturaron la esencia de la cultura juvenil británica de la época.
+            
+            El indie no se limita a un solo país o estilo, sino que abarca una variedad de subgéneros y sonidos únicos. En Estados Unidos, bandas como Sonic Youth y Pavement influenciaron el indie rock alternativo con su enfoque experimental y sus letras surrealistas. En Australia, grupos como Tame Impala y Courtney Barnett han llevado el indie a nuevas alturas, fusionando influencias psicodélicas y garage rock con letras poéticas y perspicaces.
+            
+            En la era digital, el indie ha florecido aún más con la democratización de la música a través de plataformas de streaming y redes sociales. Artistas independientes como Bon Iver, Arcade Fire y Vampire Weekend han ganado reconocimiento mundial sin comprometer su integridad artística, manteniendo viva la esencia del indie como un espacio para la innovación y la expresión personal.
+            
+            En resumen, el indie es mucho más que un género musical; es un estado de ánimo, una actitud y una comunidad global de artistas y oyentes que valoran la originalidad y la diversidad. Su capacidad para evolucionar y adaptarse a lo largo del tiempo garantiza que seguirá siendo una fuerza poderosa en la música contemporánea.
+        </p>
+    {% elif detalle.id == 31 %}  
+        <h1>
+            Cuarteto
+        </h1>
+        <p>
+            El cuarteto es un género musical originario de Córdoba, Argentina, que ha capturado los corazones de generaciones con su ritmo contagioso y su energía festiva. Surgido en los años 60, el cuarteto inicialmente fusionó elementos de la música folclórica argentina con influencias de la cumbia colombiana y el rock and roll. A lo largo de los años, ha evolucionado y diversificado, adaptándose a los gustos cambiantes del público y expandiéndose más allá de las fronteras de Córdoba para convertirse en un fenómeno nacional.
+
+            Bandas pioneras como Los Cuarteto Imperial sentaron las bases del género con canciones pegadizas como "La Ventanita" y "La Burrita". Estas primeras agrupaciones establecieron el estilo distintivo del cuarteto, caracterizado por el uso de acordeones, guitarras eléctricas y letras que hablan de amor, fiesta y tradición.
+            
+            En las décadas de 1980 y 1990, el cuarteto experimentó un auge significativo con la popularidad de artistas como Carlos "La Mona" Jiménez, conocido como el rey del cuarteto. La Mona Jiménez y su banda llevaron el género a nuevas alturas con álbumes como "El Cuartetazo" y "Aprendiendo a Volar", llenando estadios y creando himnos generacionales como "Quién se ha Tomado Todo el Vino".
+            
+            En la actualidad, el cuarteto sigue siendo un género vibrante y en constante evolución. Artistas como Ulises Bueno, hijo de Rodrigo Bueno, han revitalizado el género con su estilo moderno y su capacidad para conectar con audiencias jóvenes y veteranas por igual. Canciones como "Intento" y "Dale Vieja Dale" son ejemplos de cómo el cuarteto continúa resonando con su público, combinando la tradición con la innovación.
+            
+            El cuarteto no es solo música; es una celebración de la identidad cordobesa, una expresión de alegría y resistencia que trasciende fronteras regionales para unir a la gente en la pista de baile. Su ritmo contagioso y letras emotivas hacen del cuarteto una parte integral del paisaje musical argentino, asegurando su lugar como uno de los géneros más queridos y celebrados del país.
+        </p>
+    {% elif detalle.id == 32 %} 
+        <h1>
+            Jazz
+        </h1>
+        <p>
+            El jazz es un género musical que surgió a finales del siglo XIX en Estados Unidos y se convirtió en una forma de expresión cultural única que ha influenciado profundamente la música global. Con raíces en la música afroamericana, el jazz se caracteriza por su improvisación, complejidad rítmica y variedad de estilos que han evolucionado a lo largo del tiempo.
+
+            El jazz emergió en Nueva Orleans como una fusión de tradiciones musicales africanas, europeas y criollas. Con el tiempo, se ramificó en subgéneros como el swing, bebop, cool jazz, free jazz, entre otros, cada uno con características distintivas que reflejan diferentes períodos y movimientos culturales.
+            
+            Bandas y músicos icónicos han dejado una marca indeleble en la historia del jazz. Louis Armstrong, conocido como "Satchmo", revolucionó el jazz con su virtuosismo en la trompeta y su distintiva voz en canciones como "What a Wonderful World". Duke Ellington, con su orquesta, introdujo arreglos sofisticados y composiciones memorables como "Take the A Train". Miles Davis, pionero del cool jazz, desafió las convenciones con álbumes innovadores como "Kind of Blue", que sigue siendo un hito en la historia del género.
+            
+            El jazz no solo es música; es una forma de arte que refleja la libertad creativa y la improvisación. Desde los clubes nocturnos de Harlem hasta los festivales de jazz en todo el mundo, este género ha inspirado a músicos y aficionados por igual. Su capacidad para fusionar culturas y estilos ha generado colaboraciones únicas y ha sido una fuente de inspiración para músicos de todos los géneros.
+            
+            Hoy en día, el jazz continúa evolucionando con artistas como Esperanza Spalding, Kamasi Washington y Snarky Puppy, quienes exploran nuevas fronteras y mantienen viva la tradición del género. Su influencia perdura en la música contemporánea, asegurando que el jazz siga siendo una fuerza creativa y cultural relevante en el panorama musical global.
+        </p>
+    {% elif detalle.id == 33 %} 
+        <h1>
+            Trap
+        </h1>
+        <p>
+            El trap es un género musical contemporáneo que surge a principios del siglo XXI, originado principalmente en Estados Unidos y luego extendiéndose por todo el mundo. Con influencias del hip-hop, el trap se distingue por su ritmo distintivo y sus letras que exploran temas como la vida urbana, el dinero, el éxito y las luchas personales.
+
+            Originado en los barrios de Atlanta, Georgia, el trap se caracteriza por sus beats pesados y oscuros, a menudo acompañados de sintetizadores y bajos profundos que crean una atmósfera intensa y envolvente. Artistas como Gucci Mane y T.I. fueron pioneros en el género, estableciendo las bases para una ola de artistas que ampliarían y redefinirían el sonido trap.
+
+            Uno de los aspectos distintivos del trap es su capacidad para capturar la realidad cruda y las experiencias cotidianas de la calle. Los temas de la vida en los barrios, la lucha por la supervivencia y el deseo de éxito son recurrentes en las letras, que a menudo se entregan con un estilo de rap rápido y sincopado.
+
+            Artistas como Future, con álbumes como "DS2" y "Future Hndrxx Presents: The WIZRD", han consolidado el trap como un género dominante en la escena musical contemporánea. Su capacidad para conectar con una audiencia joven y global ha hecho que el trap traspase barreras culturales y lingüísticas, influenciando estilos de vida, moda y tendencias musicales en todo el mundo.
+
+            El trap no solo ha dejado una marca indeleble en la industria musical, sino que también ha redefinido la forma en que se crea y consume música en la era digital. Con plataformas como SoundCloud y YouTube facilitando la difusión de nuevos talentos, el trap ha democratizado el acceso a la fama y ha dado voz a una nueva generación de artistas innovadores.
+
+            En resumen, el trap es más que un género musical; es un fenómeno cultural que continúa evolucionando y expandiendo sus fronteras. Con su capacidad para fusionar influencias y estilos, el trap sigue siendo relevante y emocionante para oyentes de todas las edades en todo el mundo.
+    {% elif detalle.id == 34 %} 
+        <h1>
+            Hip Hop
+        </h1>
+        <p>
+            El hip hop es un género musical que surge a finales de la década de 1970 en las comunidades afroamericanas del Bronx, Nueva York. Desde sus inicios, el hip hop ha evolucionado de ser simplemente música a convertirse en un movimiento cultural que abarca la música, el arte, la moda y la política.
+
+            En sus primeros días, el hip hop se caracterizaba por su enfoque en el rap, un estilo de poesía hablada que se centraba en las realidades de la vida urbana, la protesta social, y las experiencias personales. Grandmaster Flash and the Furious Five, Afrika Bambaataa, y DJ Kool Herc fueron algunos de los pioneros que sentaron las bases del género.
+
+            A medida que el hip hop se expandió, se desarrollaron otros elementos fundamentales como el DJing, el graffiti y el breakdance, creando una cultura diversa y vibrante que capturaba la creatividad y la resistencia de las comunidades marginadas. La música hip hop no solo proporcionaba una voz a los jóvenes urbanos, sino que también desafiaba las normas establecidas y ofrecía una plataforma para la expresión personal y colectiva.
+
+            Con el tiempo, el hip hop ha experimentado una evolución continua, abarcando una variedad de estilos y subgéneros. Desde el rap político y consciente de figuras como Public Enemy y Tupac Shakur, hasta el gangsta rap de artistas como N.W.A. y Dr. Dre, el hip hop ha reflejado y moldeado las realidades sociales, políticas y culturales de las comunidades negras y latinas en Estados Unidos y más allá.
+
+            Álbumes clásicos como "Illmatic" de Nas, "The Chronic" de Dr. Dre y "The Miseducation of Lauryn Hill" de Lauryn Hill han sido aclamados tanto por la crítica como por el público, consolidando el hip hop como un fenómeno global que ha trascendido barreras culturales y lingüísticas.
+
+            Hoy en día, el hip hop continúa siendo uno de los géneros musicales más influyentes y populares del mundo, con artistas como Kendrick Lamar, J. Cole y Cardi B liderando el camino y redefiniendo constantemente los límites del género. Desde las calles de Nueva York hasta los escenarios internacionales, el hip hop sigue siendo un testamento de la creatividad humana y la resistencia cultural.
+        </p>
+    
+    
+    
+    
+    
+    {% endif %}
+
 
 {% endblock contenido_variable %} 
+
+
+
+
+
+

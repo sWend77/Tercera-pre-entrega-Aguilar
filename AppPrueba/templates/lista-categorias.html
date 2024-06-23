@@ -1,0 +1,24 @@
+{% extends "padre.html" %}
+
+{% block contenido_variable %}
+
+    <h1>
+        Market-MusecK
+    </h1>
+    
+    <h2>
+        Categorias:
+    </h2>
+    <ul>
+        {% for categoria in categorias %}  
+        <li>
+        
+            <a href="{% url 'DetalleCategoria' categoria.id %}." >
+                {{categoria.nombre}}
+            </a>
+            
+              
+        </li>        
+        {% endfor %} 
+    </ul>      
+{% endblock contenido_variable%}

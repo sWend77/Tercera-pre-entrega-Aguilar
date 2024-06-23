@@ -10,7 +10,7 @@
         {% for genero in generos %}
         <li>
             <a href="{% url 'DetalleGeneros' genero.id %}">
-                {{ genero }}
+                {{genero}}
             </a>
             <a href="{% url 'EliminarGenero' genero.id %}">
                 <button type="button">Eliminar</button>

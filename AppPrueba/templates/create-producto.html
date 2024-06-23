@@ -6,7 +6,7 @@
         Agrega el genero:
     </h1>
     
-    <form action="{% url 'CrearGenero' %}" method="post">{% csrf_token %}
+    <form action="{% url 'CrearProducto' %}" method="post">{% csrf_token %}
         
         {{form.as_p}}
         <button type="submit">Agregar genero</button>
