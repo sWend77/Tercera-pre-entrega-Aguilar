@@ -13,9 +13,7 @@
         {% for categoria in categorias %}  
         <li>
         
-            <a href="{% url 'DetalleCategoria' categoria.id %}." >
-                {{categoria.nombre}}
-            </a>
+            <a href="{% url 'DetalleCategoria' pk=categoria.id %}">{{categoria.nombre}}</a>
             
               
         </li>        

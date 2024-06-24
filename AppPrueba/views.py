@@ -290,14 +290,17 @@ class ListaCategoria(ListView):
     template_name = "lista-categorias.html"
     context_object_name = "categorias"
 
+
+
 class DetailCategoria(DetailView):
     
     model = CategoriaInstrumentos
     template_name = "detail-categoria.html"
     context_object_name = "detalle"
-
-
-
+    def get_context_data(self, **kwargs):
+        contexto = super().get_context_data(**kwargs)
+        contexto['form'] = BusquedaForm()
+        return contexto
 
 
 
