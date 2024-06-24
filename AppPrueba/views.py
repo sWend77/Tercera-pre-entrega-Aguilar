@@ -290,9 +290,9 @@ def buscar_instrumentos(req):
             
         if form.is_valid():
             
-            search = form.cleaned_data["search"]
+            marca = form.cleaned_data["marca"]
             
-            resultados = Instrumento.objects.filter(marca__icontains=search)
+            resultados = Instrumento.objects.filter(marca__icontains=marca)
             
             return render(req, "resultado_busqueda_instrumentos.html",{"resultados" : resultados})
         else: return  render(req, "index.html",{"message" : "Datos incorrectos"})

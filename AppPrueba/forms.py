@@ -60,17 +60,18 @@ class FormularioAvatar (forms.ModelForm):
         model = Avatar
         fields = ('imagen',)
 
-class FormularioCategorias(forms.Form):
+# class pedido(forms.Form):
+
+#     direccion = forms.CharField()
+#     nro_tarjeta = forms.IntegerField()
+#      = forms.CharField()
     
-    class Meta:
-        model =  CategoriaInstrumentos
-        fields = ["nombre"]
+    
+
 
 class BusquedaForm(forms.Form):
-    search = forms.CharField(label='Buscar instrumento por marca/modelo', max_length=100)
-    class Meta:
-        model =  Instrumento
-        fields = ['__all__']
+    marca = forms.CharField(label='Buscar instrumento por marca/modelo', max_length=100)
+    
 
 
 

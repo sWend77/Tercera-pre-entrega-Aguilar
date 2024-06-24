@@ -69,7 +69,11 @@ class CategoriaInstrumentos (models.Model):
     def __str__(self):
         return self.nombre
     
-
+class Pedido(models.Model):
+    usuario = models.ForeignKey(User, on_delete=models.CASCADE)
+    producto = models.ForeignKey(Producto, on_delete=models.CASCADE)
+    cantidad = models.IntegerField(default=1)
+    total = models.DecimalField(max_digits=10, decimal_places=2)
 
 
 

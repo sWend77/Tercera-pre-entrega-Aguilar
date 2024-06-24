@@ -2,24 +2,37 @@
 
 {% block contenido_variable %}
 
-<h1>Resultado de búsqueda de instrumentos</h1>
+<h1 id="mi-h1">Resultado de búsqueda de instrumentos</h1>
 
-    {% if resultados %}
-        <ul>
+{% if resultados %}
+    <div id="contenedor-general">   
         {% for instrumento in resultados %}
-            <li>
-                <p>Marca: {{ instrumento.marca }}</p>
-                <p>Modelo: {{ instrumento.modelo }}</p>
-                <p>Precio: {{ instrumento.precio }}</p>
-                <p>Cantidad disponible: {{ instrumento.cantidad_disponible }}</p>
-                {% if instrumento.imagen %}
-                    <img src="{{ instrumento.imagen.url }}" alt="Imagen del instrumento">
-                {% endif %}
-            </li>
+        <div id="contenedor-publicacion">
+            <ul class="detalle-publicacion">
+                <li class="lista-pubs">
+                    {% if instrumento.imagen %}
+                        <img id="mis-img" src="{{ instrumento.imagen.url }}" alt="Imagen del instrumento">
+                    {% endif %}
+                    <div class="datos-publicacion">  
+                        <p>Marca: {{ instrumento.marca }}</p>
+                        <p>Modelo: {{ instrumento.modelo }}</p>
+                        <p>Precio: ${{ instrumento.precio }}</p>
+                        <p>Cantidad disponible: {{ instrumento.cantidad_disponible }}</p>
+                    </div>   
+                    <div id="botones-publicacion">   
+                        
+                        <button id="boton" type="submit"><a id="botones" href="">Comprar</a></button>
+                          
+                        <button id="boton" type="submit"><a id="botones" href="">Agregar al carrito</a></button>
+                    
+                    </div>      
+                </li>
+            </ul>
+        </div> 
         {% endfor %}
-        </ul>
-    {% else %}
-        <p>No se encontraron instrumentos que coincidan con la búsqueda.</p>
-    {% endif %}
+    </div>
+{% else %}
+    <p>No se encontraron instrumentos que coincidan con la búsqueda.</p>
+{% endif %}
 
 {% endblock contenido_variable %}
