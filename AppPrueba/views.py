@@ -20,8 +20,6 @@ def inicio (req):
     except:
         return render(req, "index.html", {})
     
-    
-    
     return render(req, "index.html", {"url" : avatar.imagen.url})
 
 def musica(req):
@@ -80,6 +78,9 @@ def buscar(req):
             
     else:
         return render(req, "index.html", {"message" : "No enviaste el dato de usuario"})    
+
+
+
 
 
 # Seccion login----------------------------------------------------------------------------------------------------------------
@@ -186,27 +187,6 @@ def about (req):
     
     return render (req, 'about.html', {})
     
-def buscar_instrumento(req):
-    
-    form = BusquedaForm()
-    
-    if req.method == 'POST':
-        
-        form = BusquedaForm(req.POST)
-        
-        if form.is_valid():
-            
-            formulario= form.cleaned_data['formulario']
-            
-        return render(req, "index.html", {"message" : "Busqueda exitosa"})
-
-    else:
-        return render(req, 'buscar.html', {'form': form})
-    
-    
-    
-        
-
 #Seccion Musica--------------------------------------------------------------------------------------------------------------
 
 class ListaGenero(ListView):
@@ -243,39 +223,41 @@ class DeleteGenero (DeleteView):
     success_url = "/app-include/lista-generos/"
     context_object_name = "genero"
     
-#Seccion Instrument shop--------------------------------------------------------------------------------------------------------------
+#Seccion Market instrumentos--------------------------------------------------------------------------------------------------------------
 
-class ListaProducto(ListView):
+class ListaPublicaciones(ListView):
     
-    model = Producto
-    template_name = "list-productos.html"
-    context_object_name = "productos"
+    model = Instrumento
+    template_name = "list-instrumentos.html"
+    context_object_name = "instrumentos"
     
-class DetailProducto (DetailView):
+class DetailPublicaciones (DetailView):
     
-    model = Genero
-    template_name = "detail-productos.html"
-    context_object_name = "detalle-productos"
+    model = Instrumento
+    template_name = "detail-instrumentos.html"
+    context_object_name = "detalle-instrumentos"
 
-class CreateProducto (CreateView):
+class CreatePublicaciones (CreateView):
     
-    model = Genero
-    template_name = "create-producto.html"
-    fields =  ["name","brand","price"]
-    success_url = "/app-include/lista-productos/"
+    model = Instrumento
+    template_name = "create-instrumento.html"
+    fields =  ["marca"]
+    success_url = "/app-include/lista-publicaciones/"
     
-class UpdateProducto (UpdateView):
+class UpdatePublicaciones (UpdateView):
     
-    model = Genero 
-    template_name = "update-producto"
+    model = Instrumento
+    template_name = "update-instrumento"
     fields = ["name"]
     success_url = "index.html"
     
-class DeleteProducto (DeleteView):
+class DeletePublicaciones (DeleteView):
     
-    model = Genero
-    template_name = "delete-producto.html"
+    model = Instrumento
+    template_name = "delete-instrumento.html"
     success_url = "index.html"
+
+# -------------------------------------------------------------------------------------------------------------------------------------------------------
     
 class CrearCategoriaInstrumentos(CreateView):
     
@@ -284,13 +266,11 @@ class CrearCategoriaInstrumentos(CreateView):
     fields = ["nombre"]
     success_url = "/app-include/agregar-categoria/"
 
-class ListaCategoria(ListView):
+class ListaCategoria(LoginRequiredMixin, ListView):
     
     model = CategoriaInstrumentos
     template_name = "lista-categorias.html"
     context_object_name = "categorias"
-
-
 
 class DetailCategoria(DetailView):
     
@@ -301,6 +281,63 @@ class DetailCategoria(DetailView):
         contexto = super().get_context_data(**kwargs)
         contexto['form'] = BusquedaForm()
         return contexto
+
+def buscar_instrumentos(req):
+    
+    if req.method == "POST": 
+        
+        form = BusquedaForm(req.POST)
+            
+        if form.is_valid():
+            
+            search = form.cleaned_data["search"]
+            
+            resultados = Instrumento.objects.filter(marca__icontains=search)
+            
+            return render(req, "resultado_busqueda_instrumentos.html",{"resultados" : resultados})
+        else: return  render(req, "index.html",{"message" : "Datos incorrectos"})
+    else:
+        form = BusquedaForm()
+        return render(req, "detail-categoria.html", {"form" : form})    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

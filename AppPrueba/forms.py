@@ -67,8 +67,10 @@ class FormularioCategorias(forms.Form):
         fields = ["nombre"]
 
 class BusquedaForm(forms.Form):
-    query = forms.CharField(label='Buscar instrumento', max_length=100)
-
+    search = forms.CharField(label='Buscar instrumento por marca/modelo', max_length=100)
+    class Meta:
+        model =  Instrumento
+        fields = ['__all__']
 
 
 

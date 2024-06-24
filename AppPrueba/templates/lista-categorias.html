@@ -9,11 +9,11 @@
     <h2>
         Categorias:
     </h2>
-    <ul>
+    <ul class="ul-categorias">
         {% for categoria in categorias %}  
         <li>
         
-            <a href="{% url 'DetalleCategoria' pk=categoria.id %}">{{categoria.nombre}}</a>
+            <a id= "links-categorias" href="{% url 'DetalleCategoria' pk=categoria.id %}">{{categoria.nombre}}</a>
             
               
         </li>        

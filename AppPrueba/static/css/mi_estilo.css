@@ -14,7 +14,15 @@ footer{
     margin-top: 120px;
 }
 
+.ul-categorias{
+    list-style-type: none;
+}
 
+#links-categorias{
+    color: rgb(4, 0, 255);
+    list-style-type: none;
+    text-decoration: none; 
+}
 
 
 

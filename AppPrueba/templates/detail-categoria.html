@@ -9,7 +9,7 @@
     <h2>
         Encuentre el producto que desea ver:
     </h2>
-    <form action="{% url 'DetalleCategoria' pk=detalle.pk %}" method="post">{% csrf_token %}
+    <form action="{% url 'ResultadoInstrumentos' %}" method="post">{% csrf_token %}
         
         {{form.as_p}}
         <button type="submit">Buscar</button>

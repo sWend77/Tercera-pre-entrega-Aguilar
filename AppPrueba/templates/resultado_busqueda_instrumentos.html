@@ -1,0 +1,25 @@
+{% extends "padre.html" %}
+
+{% block contenido_variable %}
+
+<h1>Resultado de búsqueda de instrumentos</h1>
+
+    {% if resultados %}
+        <ul>
+        {% for instrumento in resultados %}
+            <li>
+                <p>Marca: {{ instrumento.marca }}</p>
+                <p>Modelo: {{ instrumento.modelo }}</p>
+                <p>Precio: {{ instrumento.precio }}</p>
+                <p>Cantidad disponible: {{ instrumento.cantidad_disponible }}</p>
+                {% if instrumento.imagen %}
+                    <img src="{{ instrumento.imagen.url }}" alt="Imagen del instrumento">
+                {% endif %}
+            </li>
+        {% endfor %}
+        </ul>
+    {% else %}
+        <p>No se encontraron instrumentos que coincidan con la búsqueda.</p>
+    {% endif %}
+
+{% endblock contenido_variable %}

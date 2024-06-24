@@ -53,15 +53,14 @@ class Producto(models.Model):
     name = models.CharField (max_length=50)
         
 class Instrumento(models.Model):
-    nombre = models.CharField(max_length=100)
-    cantidad_disponible = models.IntegerField(default=0)
-    precio = models.DecimalField(max_digits=10, decimal_places=2)
     marca = models.CharField(max_length=50, default='Sin marca')
-    imagen = models.ImageField(upload_to='instrumentos/', null=True, blank=True)
     modelo = models.CharField(max_length=50)
+    precio = models.DecimalField(max_digits=10, decimal_places=2)
+    cantidad_disponible = models.IntegerField(default=0)
+    imagen = models.ImageField(upload_to='instrumentos/', null=True, blank=True)
     
     def __str__(self):
-        return self.nombre
+        return self.marca
 
 class CategoriaInstrumentos (models.Model):
     

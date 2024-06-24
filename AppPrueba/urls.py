@@ -22,5 +22,6 @@ urlpatterns = [
     path("agregar-avatar/", agregar_avatar, name = "AgregarAvatar"),
     path("about/", about, name = "AboutMe"),
     path("detail-categoria/<pk>", DetailCategoria.as_view(), name = "DetalleCategoria"),
-    
+    path("publicaciones/", ListaPublicaciones.as_view(), name = "ListaPublicaiones"),
+    path("resultado-busqueda-instrumentos/", buscar_instrumentos, name = "ResultadoInstrumentos"),
 ]
