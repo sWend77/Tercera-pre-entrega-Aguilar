@@ -2,27 +2,19 @@
 
 {% block contenido_variable %}
 
-    <h1>
-        Lista generos:
+    <h1 id="mi-h1">
+        Los principales generos musicales predominantes
     </h1>
-
-    <ul>
-        {% for genero in generos %}
-        <li>
-            <a href="{% url 'DetalleGeneros' genero.id %}">
-                {{genero}}
-            </a>
-            <a href="{% url 'EliminarGenero' genero.id %}">
-                <button type="button">Eliminar</button>
-            </a>
-            <a href="{% url 'EditarGenero' genero.id %}">
-                <button type="button">Editar</button>
-            </a>
-        </li>
-        {% endfor %}
-    </ul>
-    <a href="{% url 'CrearGenero' %}">
-        <button type="submit">Crear genero</button>
-    </a>
+    <div id="contenedor-general">  
+        <ul class="detalle-publicacion">
+            {% for genero in generos %}
+            <li>
+                <a id="generos-links" href="{% url 'DetalleGeneros' genero.id %}">
+                    {{genero}}
+                </a>
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
 
 {% endblock contenido_variable %} 

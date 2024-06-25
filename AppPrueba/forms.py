@@ -60,20 +60,21 @@ class FormularioAvatar (forms.ModelForm):
         model = Avatar
         fields = ('imagen',)
 
-# class pedido(forms.Form):
-
-#     direccion = forms.CharField()
-#     nro_tarjeta = forms.IntegerField()
-#      = forms.CharField()
-    
-    
-
 
 class BusquedaForm(forms.Form):
     marca = forms.CharField(label='Buscar instrumento por marca/modelo', max_length=100)
     
 
+class FormSeleccionarCantidad(forms.Form):
+    cantidad = forms.IntegerField(label='Seleccione la cantidad', min_value=1)
 
+    def __init__(self, *args, **kwargs):
+        max_disponible = kwargs.pop('max_disponible', None)
+        super(FormSeleccionarCantidad, self).__init__(*args, **kwargs)
+        if max_disponible is not None:
+            self.fields['cantidad'].validators.append(
+                forms.MaxValueValidator(max_disponible, message=f'La cantidad máxima disponible es {max_disponible}')
+            )
 
 
 

@@ -1,0 +1,26 @@
+{% extends "padre.html" %}
+
+{% block contenido_variable %}
+
+    <h1 id="mi-h1">
+        {{instrumento}} ha sido agregado a su carrito exitosamente.
+    </h1>
+    <div id="contenedor-general">
+        <div id="contenedor-publicacion">
+            <ul class="detalle-publicacion">
+                <li class="lista-pubs">
+                    {% if instrumento.imagen %}
+                        <img id="mis-img" src="{{ instrumento.imagen.url }}" alt="Imagen del instrumento">
+                    {% endif %}
+                    <div class="datos-publicacion">
+                        <p>Marca: {{ instrumento.marca }}</p>
+                        <p>Modelo: {{ instrumento.modelo }}</p>
+                        <p>Precio: ${{ instrumento.precio }}</p>
+                        <p>Cantidad disponible: {{ instrumento.cantidad_disponible }}</p>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+   
+{% endblock contenido_variable%}

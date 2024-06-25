@@ -10,12 +10,12 @@ from django.contrib.auth import  authenticate, login, logout
 from django.contrib.auth.forms import AuthenticationForm, UserCreationForm, UserChangeForm
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
-
+from django.shortcuts import render, get_object_or_404, redirect
 
 def inicio (req):
     
     try:
-        avatar = Avatar.objects.get(user=req.user.id)
+        avatar = Avatar.objects.POST(user=req.user.id)
         return render(req, "index.html", {"url" : avatar.imagen.url})
     except:
         return render(req, "index.html", {})
@@ -68,11 +68,11 @@ def busqueda_usuarios(req):
 
 def buscar(req):
     
-    if req.GET["user"]:
+    if req.POST["user"]:
             
-        user = req.GET["user"]
+        user = req.POST["user"]
             
-        usuario = Usuario.objects.get( user = user)
+        usuario = Usuario.objects.POST( user = user)
             
         return render(req, "resultado_busqueda.html",{"usuario":usuario , "user": user})
             
@@ -295,21 +295,58 @@ def buscar_instrumentos(req):
             resultados = Instrumento.objects.filter(marca__icontains=marca)
             
             return render(req, "resultado_busqueda_instrumentos.html",{"resultados" : resultados})
+        
         else: return  render(req, "index.html",{"message" : "Datos incorrectos"})
+    
     else:
+        
         form = BusquedaForm()
+        
         return render(req, "detail-categoria.html", {"form" : form})    
 
+def comprar(req, pk):
+    
+    instrumento = get_object_or_404(Instrumento, pk=pk)
+    
+    return render(req, "datos-compra.html", {"instrumento": instrumento})
 
+def agregar_carrito(req, pk):
+    
+    instrumento = get_object_or_404(Instrumento, pk=pk)
+    
+    return render(req, "carrito.html", {"instrumento": instrumento})
 
-
-
-
-
-
-
-
-
+  
+def seleccionar_cantidad(req):
+    
+    if req.method == "POST":
+        
+        form = FormSeleccionarCantidad(req.POST)
+        
+        if form.is_valid():
+            
+            cantidad = form.cleaned_data["cantidad"]
+                
+            instrumento_id = req.POST.get('instrumento_id')
+            
+            instrumento = Instrumento.objects.get(id=instrumento_id)
+            
+            if cantidad <= instrumento.cantidad_disponible:
+                
+                resultados = Instrumento.objects.filter(id=instrumento_id)
+                
+                return render(req, "resultado_busqueda_instrumentos.html", {"resultados": resultados})
+            
+            else: 
+                mensaje = f'La cantidad seleccionada ({cantidad}) excede la cantidad disponible ({instrumento.cantidad_disponible}).'
+                return render(req, "index.html", {"message": mensaje})
+                
+        else: return  render(req, "index.html",{"message" : "Datos incorrectos"})
+    
+    else:
+        form = FormSeleccionarCantidad()
+        return render(req, "detail-categoria.html", {"form": form})
+    
 
 
 

@@ -2,21 +2,23 @@
 
 {% block contenido_variable %}
 
-    <h1>
+    <h1 id="mi-h1">
         Market-MusecK
     </h1>
     
-    <h2>
+    <h2 id="mi_h2">
         Categorias:
     </h2>
-    <ul class="ul-categorias">
-        {% for categoria in categorias %}  
-        <li>
-        
-            <a id= "links-categorias" href="{% url 'DetalleCategoria' pk=categoria.id %}">{{categoria.nombre}}</a>
+    <div id="contenedor-general">
+        <ul class="ul-categorias">
+            {% for categoria in categorias %}  
+            <li>
             
-              
-        </li>        
-        {% endfor %} 
-    </ul>      
+                <a id="generos-links" href="{% url 'DetalleCategoria' pk=categoria.id %}">{{categoria.nombre}}</a>
+                
+                
+            </li>        
+            {% endfor %} 
+        </ul>
+    </div>      
 {% endblock contenido_variable%}

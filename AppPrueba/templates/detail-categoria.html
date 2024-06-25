@@ -1,20 +1,19 @@
 {% extends "padre.html" %}
 
 {% block contenido_variable %}
-
-    <h1>
+    <h1 id="mi-h1">
         MusecK Search
     </h1>
-    
-    <h2>
+    <h2 id="mi_h2">
         Encuentre el producto que desea ver:
     </h2>
-    <form action="{% url 'ResultadoInstrumentos' %}" method="post">{% csrf_token %}
+    <div id="contenedor-general">   
+        <form action="{% url 'ResultadoInstrumentos' %}" method="post">{% csrf_token %}
+            
+            {{form.as_p}}
+            
+            <button type="submit">Buscar</button>
         
-        {{form.as_p}}
-        
-        <button type="submit">Buscar</button>
-        
-    </form>
-
-{% endblock contenido_variable %} 
+        </form>
+    </div>
+{% endblock contenido_variable %}

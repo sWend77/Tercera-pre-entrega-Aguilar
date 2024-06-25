@@ -24,4 +24,7 @@ urlpatterns = [
     path("detail-categoria/<pk>", DetailCategoria.as_view(), name = "DetalleCategoria"),
     path("publicaciones/", ListaPublicaciones.as_view(), name = "ListaPublicaiones"),
     path("resultado-busqueda-instrumentos/", buscar_instrumentos, name = "ResultadoInstrumentos"),
+    path("datos-compras/<int:pk>", comprar, name = "DatosCompras"),
+    path("carrito/<int:pk>" , agregar_carrito, name = "MiCarrito"),
+    path("realiza-pago/" , seleccionar_cantidad, name = "SeleccionarCantidad"),
 ]

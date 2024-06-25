@@ -2,6 +2,17 @@
     margin-right: 150px;
 
 }
+#navbar{
+    background: rgb(173, 137, 137);
+}
+
+#mi_container{
+    background: rgb(180, 180, 180);
+    margin: 0 10px 0 200px;
+    display: flex;
+    flex-flow: row;
+    border-radius: 4px;
+}
 
 .cont-login-register{
     width: 270px;
@@ -20,9 +31,12 @@
 #mi-h1 {
     font-style: italic;
     font-family: 'Times New Roman', Times, serif;
-    color: rgb(193, 149, 235);
+    color: rgb(255, 255, 255);
     padding: 40px;
-    background-color: rgb(94, 94, 94);
+    background-color: rgb(66, 66, 66);
+    display: flex;
+    flex-flow: row;
+    justify-content: center;
 }
 
 #contenedor-general {
@@ -83,14 +97,34 @@
 }
 
 #botones{
+    width: 100%;
+    height: 100%;
+    padding: 10px;
     text-decoration: none;
     font-weight: 600;
     color: rgb(106, 116, 255);
 }
 
+#generos-links{
+    font-size: 25px;
+    font-weight: 600;
+    color: rgb(86, 0, 156);
+    text-decoration: none;
+}
 
-
-
+#mi_h2{
+    width: 100%;
+    height: 100%;
+    font-size: 35px;
+    font-family: 'Times New Roman', Times, serif;
+    font-style: italic;
+    color: rgb(75, 75, 75);
+    border: solid 1px black;
+    background: rgb(133, 133, 133);
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
 
 
 
