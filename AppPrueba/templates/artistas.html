@@ -2,16 +2,21 @@
 
 {% block contenido_variable %}
 
-<h1>
-    Generos:
+<h1 id="mi-h1">
+    Todos tenemos nuestro lado artista...
 </h1>
-
-<form action="{% url 'Artistas' %}" method="post">{% csrf_token %}
+<h2 id="mi_h2">
+    Busque informacion sobre su artista favorito o que sea de su interes
+</h2>
+<div id="contenedor-general">
     
-    {{mi_formulario.as_p}}
-    
-    <button type="submit">Agregar artista</button>
-</form>
+    <form action="{% url 'Artistas' %}" method="post">{% csrf_token %}
+        
+        {{mi_formulario.as_p}}
+        
+        <button type="submit">Buscar artista</button>
+    </form>
 
+</div>
 
 {% endblock contenido_variable%}

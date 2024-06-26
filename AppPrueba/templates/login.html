@@ -2,14 +2,17 @@
 
 {% block contenido_variable %}
 
-    <h1>
+    <h1 id="mi-h1">
         Inicie sesion a continuacion:
     </h1>
+    <div id="contenedor-general">
+        
+        <form action="{% url 'IniciarSesion' %}" method="post">{% csrf_token %}
+            {{mi_formulario.as_p}}
+            <button type="submit">Iniciar sesion</button>
+        </form>
     
-    <form action="{% url 'IniciarSesion' %}" method="post">{% csrf_token %}
-        {{mi_formulario.as_p}}
-        <button type="submit">Iniciar sesion</button>
-    </form>
+    </div>
 
 
 {% endblock contenido_variable%}

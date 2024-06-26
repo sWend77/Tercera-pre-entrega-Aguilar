@@ -113,6 +113,7 @@ def registro (req):
 
 @login_required
 def editar_perfil(req):
+    
     usuario = req.user
     
     if req.method == "POST":
@@ -126,8 +127,11 @@ def editar_perfil(req):
             usuario.first_name = data["first_name"]
             usuario.last_name = data["last_name"]
             usuario.email = data["email"]
-            password2 = data.get("password2")
+            usuario.address = req.POST.get("address")
+            usuario.piso = req.POST.get("numero-piso")
+            usuario.avatar = req.POST.get("imagen")
             
+            password2 = data.get("password2")
             if password2:
                 
                 usuario.set_password(password2)
@@ -143,6 +147,15 @@ def editar_perfil(req):
         mi_formulario = UsereEditForm(instance=usuario)
         return render(req, "editar-perfil.html", {"mi_formulario": mi_formulario})
     
+def navbar(req):
+    usuario = req.user
+    avatar = usuario.avatar
+    context = {
+        'usuario': usuario,
+        'avatar': avatar,
+    }
+    return render(req, 'navbar.html', context)
+
 @login_required
 def agregar_avatar (req):
     

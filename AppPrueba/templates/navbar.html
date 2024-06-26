@@ -8,8 +8,13 @@
         <a class="navbar-brand" href="{% url 'Categorias' %}">Mercado</a>
         {% if user.is_authenticated %} 
             <p>
-                Sesion: {{user.username}}
+                Sesion: {{user.username}} 
             </p>
+            {% if avatar %}
+                <img src="{{url }}" alt="Avatar de {{ usuario.username }}">
+            {% else %}
+                <span>No hay avatar disponible</span>
+            {% endif %}
             <a href="{% url 'EditarPerfil' %}">
                 <button type="submit">Editar Perfil</button>
             </a>

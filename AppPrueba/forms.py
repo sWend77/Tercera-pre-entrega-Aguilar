@@ -41,7 +41,8 @@ class UsereEditForm(UserChangeForm):
     class Meta:
         model = User
         fields = ["email", "first_name", "last_name"]
-        
+    
+
     def clean_password2(self):
         password1 = self.cleaned_data.get('password1')
         password2 = self.cleaned_data.get('password2')
@@ -70,7 +71,6 @@ class FormularioAvatar (forms.ModelForm):
 class BusquedaForm(forms.Form):
     marca = forms.CharField(label='Buscar instrumento por marca/modelo', max_length=100)
     
-
 
 
 
