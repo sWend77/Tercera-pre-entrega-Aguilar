@@ -35,19 +35,6 @@ def musica(req):
         
         return render(req, "musica.html",{"mi_formulario":mi_formulario})
 
-def artistas(req):
-    
-    if req.method == "POST":
-        nuevo_artista = Artista(name = req.POST ["name"], country = req.POST ["country"], birthdate = req.POST ["birthdate"], important_albums = req.POST ["important_albums"])
-        nuevo_artista.save()
-        return render(req, "index.html",{})
-        
-    else:
-        
-        mi_formulario = Formulario_artista()
-        
-        return render(req, "artistas.html",{"mi_formulario":mi_formulario})
-
 @login_required()
 def instrumentos(req):
     
@@ -62,7 +49,7 @@ def instrumentos(req):
         
         return render(req, "instrumentos.html",{"mi_formulario":mi_formulario})
 
-# Seccion login----------------------------------------------------------------------------------------------------------------
+# Seccion login y registro----------------------------------------------------------------------------------------------------------------
 
 def login_view (req):
     
@@ -220,6 +207,38 @@ class DeleteGenero (DeleteView):
     success_url = "/app-include/lista-generos/"
     context_object_name = "genero"
     
+#Seccion Artistas-----------------------------------------------------------------------------------------------------------------------------
+
+def artistas(req):
+    if req.method == "POST":
+        form = FormularioArtista(req.POST)
+        if form.is_valid():
+            nombre = form.cleaned_data.get('nombre_de_artista')
+            pais = form.cleaned_data.get('pais')
+            
+            
+            artistas = Artista.objects.all()
+            
+            
+            if nombre:
+                artistas = artistas.filter(name__icontains=nombre)
+            
+            if pais:
+                artistas = artistas.filter(country__icontains=pais)
+            
+            contexto = {
+                'form': form,
+                'artistas': artistas,
+            }
+            return render(req, 'resultado-busqueda-artista.html', contexto)
+    else:
+        form = FormularioArtista()
+
+    return render(req, 'artistas.html', {'form': form})
+
+
+
+
 #Seccion Market instrumentos--------------------------------------------------------------------------------------------------------------
 
 class ListaPublicaciones(ListView):

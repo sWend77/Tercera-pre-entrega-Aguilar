@@ -30,7 +30,9 @@ class Artista(models.Model):
     country = models.CharField(max_length=20)
     birthdate = models.DateField(max_length=30)
     important_albums = models.CharField(max_length=40)
-    
+    biografia = models.CharField(max_length= 130423952, default=False)
+    imagen = models.ImageField(upload_to='avatares', blank=True , null=True)
+        
     def __str__(self):
     
         return f"{self.name}"

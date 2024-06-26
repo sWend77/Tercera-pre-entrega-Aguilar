@@ -10,9 +10,9 @@
 </h2>
 <div id="contenedor-general">
     
-    <form action="{% url 'Artistas' %}" method="post">{% csrf_token %}
+    <form action="{% url 'ResultadosArtistas' %}" method="post">{% csrf_token %}
         
-        {{mi_formulario.as_p}}
+        {{form.as_p}}
         
         <button type="submit">Buscar artista</button>
     </form>

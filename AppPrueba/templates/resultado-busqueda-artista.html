@@ -1,0 +1,35 @@
+{% extends "padre.html" %}
+
+{% block contenido_variable %}
+
+<h1 id="mi-h1">
+    Resultados de Búsqueda:
+</h1>
+<h2 id="mi_h2">
+    Artista/s:
+</h2>
+
+<div id="contenedor-general">
+    {% if artistas %}
+        <ul>
+            {% for artista in artistas %}
+                <li>
+                    <img src="{{ artista.imagen.url }}" alt="Imagen de {{ artista.name }}">
+                    <p><strong>Nombre:</strong> {{ artista.name }}</p>
+                    <p><strong>País:</strong> {{ artista.country }}</p>
+                    <p><strong>Álbumes Importantes:</strong> {{ artista.important_albums }}</p>
+                    <p><strong>Fecha de Nacimiento:</strong> {{ artista.birthdate }}</p>
+                    <h3>
+                        Biografia
+                    </h3>
+                    <p>{{artista.biografia}}</p>
+                </li>
+                
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>No se encontraron artistas que coincidan con los criterios de búsqueda.</p>
+    {% endif %}
+</div>
+
+{% endblock contenido_variable %}

@@ -1,6 +1,8 @@
 from django.urls import path 
 from AppPrueba.views import *
 from django.contrib.auth.views import LogoutView
+from django.conf import settings
+from django.conf.urls.static import static
 
 
 urlpatterns = [
@@ -26,4 +28,8 @@ urlpatterns = [
     path("carrito/<int:pk>" , agregar_carrito, name = "MiCarrito"),
     path("seleccionar-cantidad/" , seleccionar_cantidad, name = "SeleccionarCantidad"),
     path("forma-pago/" , elegir_pago, name = "FormaPago"),
+    path("resultados-artistas/" , artistas, name = "ResultadosArtistas"),
 ]
+
+if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

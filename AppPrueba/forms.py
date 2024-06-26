@@ -18,12 +18,12 @@ class Formulario_musica (forms.Form):
     gender = forms.CharField()
     release_year = forms.IntegerField()
     
-class Formulario_artista(forms.Form):
+class FormularioArtista(forms.Form):
     
-    name = forms.CharField()
-    country = forms.CharField()
-    birthdate = forms.DateField()
-    important_albums = forms.CharField()
+    nombre_de_artista = forms.CharField(required=False)
+    pais = forms.CharField(required=False)
+    
+    
     
 class Formulario_instrumento(forms.Form):
     
