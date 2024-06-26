@@ -20,12 +20,11 @@
                 </li>
             </ul>
         </div>
-        <form method="post" action="{% url 'SeleccionarCantidad' %}">{% csrf_token %}
+        <form method="get" action="{% url 'FormaPago' %}">{% csrf_token %}
             
-            {{form.as_p}}
-            <input type="hidden" name="instrumento_id" value="{{ instrumento.id }}">
-            <button type="submit">Seleccionar</button>
-        
+            <p>Seleccionar la cantidad que desea comprar: <input type="number" name="cantidad" min="1" max="{{ instrumento.cantidad_disponible }}" required></p>
+            <button type="submit"><a href="{% url 'FormaPago' %}">Comprar</a></button>
+
         </form>
     </div>
 

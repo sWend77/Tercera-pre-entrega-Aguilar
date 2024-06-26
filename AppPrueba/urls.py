@@ -10,8 +10,6 @@ urlpatterns = [
     path("login_view/", login_view, name = "IniciarSesion"),
     path("artistas/", artistas, name = "Artistas"),
     path("lista-categorias/", ListaCategoria.as_view(), name = "Categorias"),
-    path("busqueda_username/", busqueda_usuarios, name="Busqueda"),    
-    path("buscar/", buscar, name = "BuscarUsuario"),
     path("lista-generos/", ListaGenero.as_view(), name = "ListaGeneros"),
     path("detail-genero/<pk>", DetailGenero.as_view(), name = "DetalleGeneros"),
     path("create-genero/", CreateGenero.as_view(), name = "CrearGenero"),
@@ -26,5 +24,6 @@ urlpatterns = [
     path("resultado-busqueda-instrumentos/", buscar_instrumentos, name = "ResultadoInstrumentos"),
     path("datos-compras/<int:pk>", comprar, name = "DatosCompras"),
     path("carrito/<int:pk>" , agregar_carrito, name = "MiCarrito"),
-    path("realiza-pago/" , seleccionar_cantidad, name = "SeleccionarCantidad"),
+    path("seleccionar-cantidad/" , seleccionar_cantidad, name = "SeleccionarCantidad"),
+    path("forma-pago/" , elegir_pago, name = "FormaPago"),
 ]

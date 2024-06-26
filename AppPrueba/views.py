@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from .models import *
-from django.http import HttpResponse
+from django.http import HttpResponse, HttpResponseBadRequest
 from django.template import loader
 from .forms import *
 from django.views.generic import ListView
@@ -62,27 +62,6 @@ def instrumentos(req):
         
         return render(req, "instrumentos.html",{"mi_formulario":mi_formulario})
 
-def busqueda_usuarios(req):
-    
-    return render(req, "busqueda_usuarios.html",{}) 
-
-def buscar(req):
-    
-    if req.POST["user"]:
-            
-        user = req.POST["user"]
-            
-        usuario = Usuario.objects.POST( user = user)
-            
-        return render(req, "resultado_busqueda.html",{"usuario":usuario , "user": user})
-            
-    else:
-        return render(req, "index.html", {"message" : "No enviaste el dato de usuario"})    
-
-
-
-
-
 # Seccion login----------------------------------------------------------------------------------------------------------------
 
 def login_view (req):
@@ -132,14 +111,13 @@ def registro (req):
         mi_formulario = UserCreationForm()
         return render (req, "registrarse.html",{"mi_formulario": mi_formulario})    
 
-@login_required    
-def editar_perfil (req):
+@login_required
+def editar_perfil(req):
+    usuario = req.user
     
     if req.method == "POST":
         
-        usuario = req.user
-        
-        mi_formulario = UsereEditForm(req.POST, instance = req.user)
+        mi_formulario = UsereEditForm(req.POST, instance=usuario)
         
         if mi_formulario.is_valid():
             
@@ -148,16 +126,22 @@ def editar_perfil (req):
             usuario.first_name = data["first_name"]
             usuario.last_name = data["last_name"]
             usuario.email = data["email"]
-            usuario.set_password(data["password2"])
+            password2 = data.get("password2")
+            
+            if password2:
+                
+                usuario.set_password(password2)
             
             usuario.save()
+            return render(req, "index.html", {"message": "Datos actualizados con éxito"})
+        else:
             
-            return render(req, "index.html" , {"message": "Datos Actualizados con exito!"})       
-            
-        else: return render (req, "editar-perfil.html",{"mi_formulario": mi_formulario}) 
+            return render(req, "editar-perfil.html", {"mi_formulario": mi_formulario})
+    
     else:
-        mi_formulario = UsereEditForm(instance = req.user)
-        return render (req, "editar-perfil.html",{"mi_formulario": mi_formulario})
+       
+        mi_formulario = UsereEditForm(instance=usuario)
+        return render(req, "editar-perfil.html", {"mi_formulario": mi_formulario})
     
 @login_required
 def agregar_avatar (req):
@@ -321,35 +305,46 @@ def seleccionar_cantidad(req):
     
     if req.method == "POST":
         
-        form = FormSeleccionarCantidad(req.POST)
+        instrumento_id = req.POST.get('instrumento_id')
         
-        if form.is_valid():
+        cantidad = int(req.POST.get('cantidad', 0))
+        
+        if instrumento_id:
             
-            cantidad = form.cleaned_data["cantidad"]
-                
-            instrumento_id = req.POST.get('instrumento_id')
+            instrumento = get_object_or_404(Instrumento, id=instrumento_id)
             
-            instrumento = Instrumento.objects.get(id=instrumento_id)
-            
-            if cantidad <= instrumento.cantidad_disponible:
+            if cantidad > 0 and cantidad <= instrumento.cantidad_disponible:
                 
                 resultados = Instrumento.objects.filter(id=instrumento_id)
                 
                 return render(req, "resultado_busqueda_instrumentos.html", {"resultados": resultados})
             
-            else: 
-                mensaje = f'La cantidad seleccionada ({cantidad}) excede la cantidad disponible ({instrumento.cantidad_disponible}).'
-                return render(req, "index.html", {"message": mensaje})
+            else:
                 
-        else: return  render(req, "index.html",{"message" : "Datos incorrectos"})
+                mensaje = f'La cantidad seleccionada ({cantidad}) es inválida o excede la cantidad disponible ({instrumento.cantidad_disponible}).'
+                
+                return render(req, "index.html", {"message": mensaje})
+        
+        else:
+            
+            return HttpResponseBadRequest("No se ha proporcionado un ID de instrumento válido.")        
     
     else:
-        form = FormSeleccionarCantidad()
-        return render(req, "detail-categoria.html", {"form": form})
+        instrumento_id = req.GET.get('instrumento_id') 
+        
+        if instrumento_id:
+            
+            instrumento = get_object_or_404(Instrumento, id=instrumento_id)
+            
+            return render(req, "detail-categoria.html", {"instrumento": instrumento})
+        
+        else:
+            
+            return HttpResponseBadRequest("No se ha proporcionado un ID de instrumento válido.")
+
+def elegir_pago (req):
     
-
-
-
+    return render (req, "forma-pago.html", {})
 
 
 

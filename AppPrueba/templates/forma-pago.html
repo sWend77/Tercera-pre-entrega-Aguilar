@@ -1,0 +1,20 @@
+{% extends "padre.html" %}
+
+{% block contenido_variable %}
+
+    <h1 id="mi-h1">Elegir forma de pago</h1>
+
+    <div id="contenedor-general">
+        <ul class="ul-categorias">
+            {% for categoria in categorias %}  
+            <li>
+            
+                <a id="generos-links" href="{% url 'DetalleCategoria' pk=categoria.id %}">{{categoria.nombre}}</a>
+                
+                
+            </li>        
+            {% endfor %} 
+        </ul>
+    </div>
+
+{% endblock contenido_variable %}

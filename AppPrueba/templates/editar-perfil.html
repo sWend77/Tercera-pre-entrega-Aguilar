@@ -1,14 +1,20 @@
 {% extends "padre.html" %}
 
 {% block contenido_variable %}
-
-    <form action="{% url 'EditarPerfil' %}" method="post"> {% csrf_token %}
-        
-        {{mi_formulario.as_p}}
-        
-        <button type="submit">Guardar cambios</button>
     
-    </form>
-
+    <h1 id="mi-h1">Editar Perfil</h1>
+    <div id="contenedor-general">
+        <form action="{% url 'EditarPerfil' %}" method="post"> {% csrf_token %}
+            
+            {{mi_formulario.as_p}}
+            <p>Adress: <input type="text"></p>
+            <p>Piso: <input type="number" name="numero-piso" min="0" max="100"></p>
+            <p>Tarjeta de credito</p>
+            
+            <button type="submit">Save</button>
+            
+        </form>
+    </div>
 
 {% endblock contenido_variable%}
+
