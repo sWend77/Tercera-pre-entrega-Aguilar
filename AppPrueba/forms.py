@@ -65,7 +65,7 @@ class FormularioAvatar (forms.ModelForm):
     
     class Meta:
         model = Avatar
-        fields = ('imagen',)
+        fields = ['imagen']
 
 
 class BusquedaForm(forms.Form):

@@ -134,14 +134,6 @@ def editar_perfil(req):
         mi_formulario = UsereEditForm(instance=usuario)
         return render(req, "editar-perfil.html", {"mi_formulario": mi_formulario})
     
-def navbar(req):
-    usuario = req.user
-    avatar = usuario.avatar
-    context = {
-        'usuario': usuario,
-        'avatar': avatar,
-    }
-    return render(req, 'navbar.html', context)
 
 @login_required
 def agregar_avatar (req):
@@ -330,7 +322,7 @@ def agregar_carrito(req, pk):
     
     instrumento = get_object_or_404(Instrumento, pk=pk)
     
-    return render(req, "carrito.html", {"instrumento": instrumento})
+    return render(req, "datos-carrito.html", {"instrumento": instrumento})
 
   
 def seleccionar_cantidad(req):
@@ -378,12 +370,45 @@ def elegir_pago (req):
     
     return render (req, "forma-pago.html", {})
 
+@login_required
+def agregar_al_carrito(req, producto_id):
+    
+    producto = get_object_or_404(Instrumento, pk=producto_id)
+    
+    carrito, creado = Carrito.objects.get_or_create(usuario=req.user)
+    
+    item_carrito, creado = ItemCarrito.objects.get_or_create(carrito=carrito, producto=producto)
+    
+    item_carrito.cantidad += 1
+    
+    item_carrito.save()
+    
+    return redirect('MiCarrito', pk=carrito.pk)
+
+@login_required
+def ver_carrito(req):
+    
+    return render(req, "carrito.html",{})
+    
 
 
 
 
 
 
+# carrito = get_object_or_404(Carrito, pk=pk, usuario=req.user)
+    
+# items = ItemCarrito.objects.filter(carrito=carrito)
+    
+# total = sum(item.producto.precio * item.cantidad for item in items)
+    
+# return render(req, 'carrito.html', {'carrito': carrito, 'items': items, 'total': total})
+
+def tu_vista_principal(req):
+    
+    carrito = Carrito.objects.get(usuario=req.user)
+    
+    return render(req, 'navbar.html', {'carrito': carrito})
 
 
 

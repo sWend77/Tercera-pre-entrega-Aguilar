@@ -23,7 +23,7 @@
 
 .footer{ 
     width: 100%;
-    height: 50px;
+    height: 128px;
     padding: 0px;
     margin: 0;
 }
@@ -40,16 +40,18 @@
 }
 
 #contenedor-general {
+    width: 100%;
+    height: 100%;
     background: rgb(202, 202, 202);
     display: flex;
-    flex-wrap: row wrap; 
+    flex-wrap: row; 
     justify-content: space-evenly; 
     padding: 20px; 
 }
 
-#contenedor-publicacion {
+#contenedor-publicacion  {
     width: 15%;
-    height: 70%; 
+    height: 10%; 
     margin-bottom: 0; 
     padding: 10px;
     background: rgb(53, 53, 53);
@@ -134,9 +136,14 @@
     flex-flow: column wrap;
 }
 
+#mi_header header{
+    width: 100%;
+    padding: 100px 0 100px 0;
+}
 
-
-
+.boton-seleccion{
+    height: 40px;
+}
 
 
 

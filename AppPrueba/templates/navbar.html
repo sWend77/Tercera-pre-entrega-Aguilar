@@ -11,12 +11,15 @@
                 Sesion: {{user.username}} 
             </p>
             {% if avatar %}
-                <img src="{{url }}" alt="Avatar de {{ usuario.username }}">
+            <img src="{{ context.avatar }}" alt="Imagen de {{ context.name }}">
             {% else %}
                 <span>No hay avatar disponible</span>
             {% endif %}
             <a href="{% url 'EditarPerfil' %}">
                 <button type="submit">Editar Perfil</button>
+            </a>
+            <a href="{% url 'MiCarrito' %}">
+                <button type="submit">Mi Carrito</button>
             </a>
             <form action="{% url 'LogoutUser' %}" method="post"> {% csrf_token %}
                 <button type="submit">Salir</button>

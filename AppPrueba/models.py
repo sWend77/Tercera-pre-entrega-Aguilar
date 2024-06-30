@@ -1,6 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
-
+from django.utils import timezone
 
 
 class Usuario(models.Model):
@@ -54,16 +54,28 @@ class Avatar (models.Model):
         return f'Avatar #{self.id}'
     
 
-class Producto(models.Model):
-    
-    name = models.CharField (max_length=50)
+
         
 class Instrumento(models.Model):
+    
+    TIPO_CHOICES = [
+        ('guitarra', 'Guitarra'),
+        ('bajo', 'Bajo'),
+        ('baterias', 'Baterias'),
+        ('violines', 'Violines'),
+        ('ukeleles', 'Ukeleles'),
+        ('saxofones', 'Saxofones'),
+        ('pianos', 'Pianos'),
+        ('acordeones' , 'Acordeones'),
+        ('flautas' , 'Flautas'),
+    ]
+    
     marca = models.CharField(max_length=50, default='Sin marca')
     modelo = models.CharField(max_length=50)
     precio = models.DecimalField(max_digits=10, decimal_places=2)
     cantidad_disponible = models.IntegerField(default=0)
     imagen = models.ImageField(upload_to='instrumentos/', null=True, blank=True)
+    tipo = models.CharField(max_length=50, default="", choices=TIPO_CHOICES)
     
     def __str__(self):
         return self.marca
@@ -75,11 +87,6 @@ class CategoriaInstrumentos (models.Model):
     def __str__(self):
         return self.nombre
     
-class Pedido(models.Model):
-    usuario = models.ForeignKey(User, on_delete=models.CASCADE)
-    producto = models.ForeignKey(Producto, on_delete=models.CASCADE)
-    cantidad = models.IntegerField(default=1)
-    total = models.DecimalField(max_digits=10, decimal_places=2)
 
 class UserProfile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
@@ -90,7 +97,21 @@ class UserProfile(models.Model):
     def __str__(self):
         return self.user.username
 
+class Carrito(models.Model):
+    usuario = models.ForeignKey(User, on_delete=models.CASCADE)
+    productos = models.ManyToManyField(Instrumento, through='ItemCarrito')
+    creado_en = models.DateTimeField(default=timezone.now)
 
+    def __str__(self):
+        return f'Carrito de {self.usuario.username}'
+    
+class ItemCarrito(models.Model):
+    carrito = models.ForeignKey(Carrito, on_delete=models.CASCADE)
+    producto = models.ForeignKey(Instrumento, on_delete=models.CASCADE)
+    cantidad = models.PositiveIntegerField(default=1)
+
+    def __str__(self):
+        return f'{self.cantidad} x {self.producto.nombre} en {self.carrito}'   
 
 
 

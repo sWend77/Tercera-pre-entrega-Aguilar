@@ -25,10 +25,11 @@ urlpatterns = [
     path("publicaciones/", ListaPublicaciones.as_view(), name = "ListaPublicaiones"),
     path("resultado-busqueda-instrumentos/", buscar_instrumentos, name = "ResultadoInstrumentos"),
     path("datos-compras/<int:pk>", comprar, name = "DatosCompras"),
-    path("carrito/<int:pk>" , agregar_carrito, name = "MiCarrito"),
+    path('carrito/', ver_carrito, name='MiCarrito'),
     path("seleccionar-cantidad/" , seleccionar_cantidad, name = "SeleccionarCantidad"),
     path("forma-pago/" , elegir_pago, name = "FormaPago"),
     path("resultados-artistas/" , artistas, name = "ResultadosArtistas"),
+    path("info-carrito/<int:pk>" , agregar_carrito, name = "DatosCarrito"),
 ]
 
 if settings.DEBUG:
