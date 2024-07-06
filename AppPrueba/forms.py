@@ -69,7 +69,7 @@ class FormularioAvatar (forms.ModelForm):
 
 
 class BusquedaForm(forms.Form):
-    marca = forms.CharField(label='Buscar instrumento por marca/modelo', max_length=100)
+    marca = forms.CharField(label='Buscar instrumento por marca:', max_length=100)
     
 
 

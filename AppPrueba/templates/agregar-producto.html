@@ -1,0 +1,18 @@
+{% extends "padre.html" %}
+
+{% block contenido_variable %}
+
+<h1 id="mi-h1">
+    Producto agregado al carrito exitosamente
+</h1>
+
+<div id="contenedor-general">
+    <h2>
+        Si desea ir a su carrito seleccione la siguiente opcion:
+    </h2>
+    <a href="{% url 'MiCarrito' %}">
+        <button type="submit">Ir al carrito</button>
+    </a>
+</div>
+
+{% endblock contenido_variable %}

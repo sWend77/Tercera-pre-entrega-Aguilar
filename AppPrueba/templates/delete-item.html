@@ -1,0 +1,16 @@
+{% extends "padre.html" %}
+
+{% block contenido_variable %}
+
+    <h1 id="mi-h1">
+        Estas seguro que deseas eliminar el instrumento de tu carrito?
+    </h1>
+    <div id="contenedor-general">
+        <form action="" method="post">{% csrf_token %}
+            <button type="submit">Si</button>
+        </form>
+        <a href="{% url 'MiCarrito' %}">
+            <button type="submit">No</button>
+        </a>
+    </div>  
+{% endblock contenido_variable %} 

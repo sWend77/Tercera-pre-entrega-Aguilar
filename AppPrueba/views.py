@@ -371,38 +371,34 @@ def elegir_pago (req):
     return render (req, "forma-pago.html", {})
 
 @login_required
-def agregar_al_carrito(req, producto_id):
+def agregar_al_carrito(req, pk):
     
-    producto = get_object_or_404(Instrumento, pk=producto_id)
-    
+    producto = get_object_or_404(Instrumento, pk=pk)
     carrito, creado = Carrito.objects.get_or_create(usuario=req.user)
     
     item_carrito, creado = ItemCarrito.objects.get_or_create(carrito=carrito, producto=producto)
     
-    item_carrito.cantidad += 1
+    if not creado:
+        item_carrito.save()
     
-    item_carrito.save()
-    
-    return redirect('MiCarrito', pk=carrito.pk)
+    return redirect('MiCarrito')
 
 @login_required
 def ver_carrito(req):
     
-    return render(req, "carrito.html",{})
+    carrito, creado = Carrito.objects.get_or_create(usuario=req.user)
     
-
-
-
-
-
-
-# carrito = get_object_or_404(Carrito, pk=pk, usuario=req.user)
+    items_carrito = ItemCarrito.objects.filter(carrito=carrito)
     
-# items = ItemCarrito.objects.filter(carrito=carrito)
+    return render(req, 'carrito.html', {'carrito': carrito, 'items_carrito': items_carrito})
+
+class DeleteItem (DeleteView):
     
-# total = sum(item.producto.precio * item.cantidad for item in items)
-    
-# return render(req, 'carrito.html', {'carrito': carrito, 'items': items, 'total': total})
+    model = ItemCarrito
+    template_name = "delete-item.html"
+    success_url = "/app-include/carrito/"
+    context_object_name = "delete"
+
 
 def tu_vista_principal(req):
     

@@ -15,7 +15,7 @@ urlpatterns = [
     path("lista-generos/", ListaGenero.as_view(), name = "ListaGeneros"),
     path("detail-genero/<pk>", DetailGenero.as_view(), name = "DetalleGeneros"),
     path("create-genero/", CreateGenero.as_view(), name = "CrearGenero"),
-    path("delete-genero/<pk>", DeleteGenero.as_view(), name = "EliminarGenero"),
+    path("delete-item/<int:pk>", DeleteItem.as_view(), name = "EliminarItem"),
     path("edit-genero/<pk>", UpdateGenero.as_view(), name = "EditarGenero"),
     path("logout/", LogoutView.as_view(template_name = "logout.html"), name = "LogoutUser"),
     path("edit-perfil/", editar_perfil, name = "EditarPerfil"),
@@ -29,7 +29,8 @@ urlpatterns = [
     path("seleccionar-cantidad/" , seleccionar_cantidad, name = "SeleccionarCantidad"),
     path("forma-pago/" , elegir_pago, name = "FormaPago"),
     path("resultados-artistas/" , artistas, name = "ResultadosArtistas"),
-    path("info-carrito/<int:pk>" , agregar_carrito, name = "DatosCarrito"),
+    path("datos-carrito/<int:pk>" , agregar_carrito, name = "DatosCarrito"),
+    path("agregar-producto/<int:pk>" , agregar_al_carrito, name = "AgregarProducto"),
 ]
 
 if settings.DEBUG:

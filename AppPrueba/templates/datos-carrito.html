@@ -2,7 +2,7 @@
 
 {% block contenido_variable %}
 
-    <h1 id="mi-h1">Si desea agregar su instrumento a su carrito, seleccione una cantidad</h1>
+    <h1 id="mi-h1">Si desea agregar su instrumento a su carrito, ingrese a continuacion:</h1>
 
     <div id="contenedor-general">
         <div id="contenedor-publicacion">
@@ -20,12 +20,13 @@
                 </li>
             </ul>
         </div>
-        <form method="get" action="{% url 'FormaPago' %}">{% csrf_token %}
-            
-            <p>Seleccionar la cantidad que desea agregar a su carrito de compras: <input type="number" name="cantidad" min="1" max="{{ instrumento.cantidad_disponible }}" required></p>
-            <button type="submit"><a href="{% url 'MiCarrito' %}">Agregar al carrito</a></button>
-
-        </form>
-    </div>
+            <form action="{% url 'AgregarProducto' pk=instrumento.id %}" method="post">{% csrf_token %}
+                
+                <a href="{% url 'MiCarrito' %}">
+                    <button type="submit">Agregar al carrito</button>
+                </a>
+                
+            </form>
+        </div>
 
 {% endblock contenido_variable %}

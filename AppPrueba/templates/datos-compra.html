@@ -22,7 +22,7 @@
         </div>
         <form method="get" action="{% url 'FormaPago' %}">{% csrf_token %}
             
-            <p>Seleccionar la cantidad que desea comprar: <input type="number" name="cantidad" min="1" max="{{ instrumento.cantidad_disponible }}" required></p>
+            <p>Seleccionar la cantidad que desea comprar: <input value="1" type="number" name="cantidad" min="1" max="{{ instrumento.cantidad_disponible }}" required></p>
             <button type="submit"><a href="{% url 'FormaPago' %}">Comprar</a></button>
 
         </form>

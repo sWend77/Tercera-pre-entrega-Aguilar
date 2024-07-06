@@ -2,31 +2,39 @@
 
 {% block contenido_variable %}
 
-    <h1 id="mi-h1">
-        Mi carrito
-    </h1>
-    <h2 id="mi_h2">
-        Su producto ha sido agregado a su carrito exitosamente.
-    </h2>
+    <h1 id="mi-h1">Mi Carrito</h1>
+
     <div id="contenedor-general">
-        <div id="contenedor-publicacion">
-            <ul class="detalle-publicacion">
-                <li class="lista-pubs">
-                    {% if instrumento.imagen %}
-                        <img id="mis-img" src="{{ instrumento.imagen.url }}" alt="Imagen del instrumento">
-                    {% endif %}
-                    <div class="datos-publicacion">
-                        <p>Marca: {{ instrumento.marca }}</p>
-                        <p>Modelo: {{ instrumento.modelo }}</p>
-                        <p>Precio: ${{ instrumento.precio }}</p>
-                        <p>Cantidad disponible: {{ instrumento.cantidad_disponible }}</p>
-                    </div>
-                </li>
-            </ul>
-        </div>
-        <a class="boton-seleccion" href="{% url 'FormaPago' %}">
-            <button type="submit">Seleccionar forma de pago</button>
-        </a>
-    </div>
-   
-{% endblock contenido_variable%}
+        {% if items_carrito %}
+            {% for item in items_carrito %}
+                <div id="contenedor-publicacion">
+                    <ul class="detalle-publicacion">
+                        <li class="lista-pubs">
+                            {% if item.producto.imagen %}
+                                <img id="mis-img" src="{{ item.producto.imagen.url }}" alt="Imagen del instrumento">
+                            {% endif %}
+                            <div class="datos-publicacion">
+                                <p>Marca: {{ item.producto.marca }}</p>
+                                <p>Modelo: {{ item.producto.modelo }}</p>
+                                <p>Precio: ${{ item.producto.precio }}</p>
+                            </div>
+                            <a href="{% url 'DatosCompras' pk=item.pk %}">
+                                <button type="button">Continuar con el pago</button>
+                            </a>
+                            <a href="{% url 'EliminarItem' pk=item.pk %}">
+                                <button type="submit">Eliminar item</button>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            {% endfor %}
+        {% else %}
+            
+        <h2 id="mi_h2">
+            No hay items en su carrito.
+        </h2>
+            
+        {% endif %}
+    </div>    
+
+{% endblock contenido_variable %}

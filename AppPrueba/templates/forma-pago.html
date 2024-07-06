@@ -2,19 +2,25 @@
 
 {% block contenido_variable %}
 
-    <h1 id="mi-h1">Elegir forma de pago</h1>
+    <h1 id="mi-h1">
+        Elegir forma de pago
+    </h1>
+    <h2 id="mi_h2">
+        Como desea efectuar su pago?
+    </h2>
 
     <div id="contenedor-general">
-        <ul class="ul-categorias">
-            {% for categoria in categorias %}  
-            <li>
-            
-                <a id="generos-links" href="{% url 'DetalleCategoria' pk=categoria.id %}">{{categoria.nombre}}</a>
-                
-                
-            </li>        
-            {% endfor %} 
-        </ul>
+        <div id="contenedor-metodo-pago"> 
+            <a href="">
+                <button id="boton-pago" type="submit">Tarjeta de credito</button>
+            </a>
+            <a href="">
+                <button id="boton-pago" type="submit">Efectivo</button>
+            </a>
+            <a href="">
+                <button id="boton-pago" type="submit">Criptomonedas</button>
+            </a>
+        </div> 
     </div>
 
 {% endblock contenido_variable %}
