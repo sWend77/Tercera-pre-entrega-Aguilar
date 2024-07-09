@@ -38,18 +38,17 @@ class UsereEditForm(UserChangeForm):
     password2 = forms.CharField(label="Nueva Contraseña", widget=forms.PasswordInput, required=False)
     direccion = forms.CharField(label="Dirección", max_length=255, required=False)
     piso = forms.IntegerField(label="Piso", required=False)
-    imagen = forms.ImageField(label="Avatar", required=False)
 
     class Meta:
         model = User
-        fields = ["email", "first_name", "last_name", "direccion", "piso", "imagen"]
+        fields = ["email", "first_name", "last_name", "direccion", "piso"]
 
     def clean_password2(self):
         password1 = self.cleaned_data.get('password1')
         password2 = self.cleaned_data.get('password2')
 
         if password1 and password1 != password2:
-            raise forms.ValidationError("Las contraseñas no coinciden. Intentelo nuevamente.")
+            raise forms.ValidationError("Las contraseñas no coinciden. Inténtelo nuevamente.")
 
         return password2
 
@@ -66,11 +65,6 @@ class UsereEditForm(UserChangeForm):
         user_profile.direccion = self.cleaned_data['direccion']
         user_profile.piso = self.cleaned_data['piso']
         user_profile.save()
-
-        avatar, created = Avatar.objects.get_or_create(user=user)
-        if self.cleaned_data['imagen']:
-            avatar.imagen = self.cleaned_data['imagen']
-            avatar.save()
 
         return user
 

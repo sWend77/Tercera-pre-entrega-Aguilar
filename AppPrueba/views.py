@@ -84,7 +84,7 @@ def registro(req):
             usuario = data["username"]
             mi_formulario.save()
             
-            return render(req, "index.html", {"message": f"Bienvenido {usuario}, ya eres miembro de MusecK!"})       
+            return render(req, "index.html", {"message": f"Su registro ha sido exitoso. Ya puede iniciar sesion."})       
             
         else:
             return render(req, "index.html", {"message":"Datos invalidos"})
@@ -100,66 +100,48 @@ def editar_perfil(req):
         mi_formulario = UsereEditForm(req.POST, req.FILES, instance=usuario)
 
         if mi_formulario.is_valid():
-            data = mi_formulario.cleaned_data
+            usuario = mi_formulario.save(commit=False)
 
-            usuario.first_name = data["first_name"]
-            usuario.last_name = data["last_name"]
-            usuario.email = data["email"]
-
-            password2 = data.get("password2")
-            if password2:
-                usuario.set_password(password2)
+            user_profile, created = UserProfile.objects.get_or_create(user=usuario)
+            user_profile.direccion = mi_formulario.cleaned_data['direccion']
+            user_profile.piso = mi_formulario.cleaned_data['piso']
+            user_profile.save()
 
             usuario.save()
 
-            user_profile, created = UserProfile.objects.get_or_create(user=usuario)
-            user_profile.direccion = data['direccion']
-            user_profile.piso = data['piso']
-            user_profile.save()
-
-            avatar, created = Avatar.objects.get_or_create(user=usuario)
-            if data['imagen']:
-                avatar.imagen = data['imagen']
-                avatar.save()
-
-            return render(req, "index.html", {"message": "Datos actualizados con éxito"})
+            return redirect('Inicio')
         else:
-            return render(req, "editar-perfil.html", {"mi_formulario": mi_formulario})
+            avatar = Avatar.objects.get(user=usuario).imagen
+            return render(req, "editar-perfil.html", {"mi_formulario": mi_formulario, "avatar": avatar})
     else:
         user_profile, created = UserProfile.objects.get_or_create(user=usuario)
         avatar, created = Avatar.objects.get_or_create(user=usuario)
         initial_data = {
             'direccion': user_profile.direccion,
             'piso': user_profile.piso,
-            'imagen': avatar.imagen,
         }
         mi_formulario = UsereEditForm(instance=usuario, initial=initial_data)
-        return render(req, "editar-perfil.html", {"mi_formulario": mi_formulario})
-    
+        return render(req, "editar-perfil.html", {"mi_formulario": mi_formulario, "avatar": avatar.imagen})
 
 @login_required
-def agregar_avatar (req):
-    
+def agregar_avatar(req):
     if req.method == "POST":
-        
-        mi_formulario = FormularioAvatar(req.POST , req.FILES)
+        mi_formulario = FormularioAvatar(req.POST, req.FILES)
         
         if mi_formulario.is_valid():
-            
             data = mi_formulario.cleaned_data
             
-            avatar = Avatar(user=req.user,imagen=data['imagen'])
+            avatar, created = Avatar.objects.get_or_create(user=req.user)
             
+            avatar.imagen = data['imagen']
             avatar.save()
             
-            return render(req, "index.html" , {"message": "Avatar cargado con exito"})       
-            
-        else: return render (req, "index.html" , {"message":"Ocurrio un error al cargar el avatar"})
+            return redirect('EditarPerfil')  
+        else:
+            return render(req, "index.html", {"message": "Ocurrió un error al cargar el avatar"})
     else:
-        
         mi_formulario = FormularioAvatar()
-        
-        return render (req, "agregar_avatar.html",{ "mi_formulario": mi_formulario})    
+        return render(req, "agregar_avatar.html", {"agregar_avatar": mi_formulario})
     
 def about (req):
     

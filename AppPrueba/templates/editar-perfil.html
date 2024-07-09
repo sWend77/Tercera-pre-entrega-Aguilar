@@ -1,11 +1,21 @@
 {% extends "padre.html" %}
-
+{% load static %}
 {% block contenido_variable %}
     
     <h1 id="mi-h1">Editar Perfil</h1>
     <div id="contenedor-general">
         <form action="{% url 'EditarPerfil' %}" method="post"> {% csrf_token %}
-            
+            <p>
+                Su avatar: 
+                {% if avatar %}
+                    <img src="{{ avatar.url }}" alt="Avatar" style="width: 150px; height: auto; border: solid 2px rgb(143, 143, 143); margin-left: 30px;"/>
+                {% else %}
+                <img src="{% static 'assets/img/imagenxdefecto.jpg' %}" alt="Avatar por defecto" style="width: 150px; height: auto; border: solid 2px rgb(143, 143, 143); margin-left: 30px;"/>
+                {% endif %}
+            </p>
+            <a href="{% url 'AgregarAvatar' %}">
+                Agregar/Cambiar avatar
+            </a>
             {{mi_formulario.as_p}}
             
             <button type="submit">Guardar datos</button>
