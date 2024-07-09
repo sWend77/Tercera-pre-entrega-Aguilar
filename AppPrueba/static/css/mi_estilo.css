@@ -21,7 +21,7 @@
     justify-content: space-around;
 }
 
-.footer{ 
+ footer , .footer, #footer-style{ 
     width: 100%;
     height: 128px;
     padding: 0px;
@@ -44,7 +44,7 @@
     height: 100%;
     background: rgb(202, 202, 202);
     display: flex;
-    flex-wrap: row; 
+    flex-wrap: column; 
     justify-content: space-evenly; 
     padding: 20px; 
 }
@@ -160,21 +160,33 @@
 }
 
 #boton-pago{
-    width: 40%;
-    height: 50px;
+    width: 60%;
+    height: 60px;
+    margin: 20px;
+    border: solid 1px black;
+    border-radius: 4px;
     display: flex;
     flex-flow: row;
     justify-content: center;
     text-decoration: none;
     font-size: 20px;
-    border: solid 1px black;
-    border-radius: 4px;
 }
 
+#botones{
+    width: 100%;
+}
 
-
-
-
+#box-pago-carrito{
+    width: 20%;
+    height: 70%;
+    margin-top: 150px;
+    border: solid 1px black;
+    background: rgb(255, 255, 255);
+    display: flex;
+    flex-flow: column;
+    justify-items: center;
+    align-items: center;
+}
 
 
 

@@ -1,0 +1,23 @@
+{% extends "padre.html" %}
+
+{% block contenido_variable %}
+
+    <h1 id="mi-h1">
+        Venda su instrumento a continuacion
+    </h1>
+    <h2 id="mi_h2">
+        Crear publicacion:
+    </h2>
+
+    <div id="contenedor-general">
+        <form action="{% url 'CrearPublicaciones' %}" method="post"> {% csrf_token %}
+
+            {{form.as_p}}
+
+            <button type="submit">Crear publicacion</button>
+        
+        </form>
+
+    </div>
+    
+{% endblock contenido_variable %}

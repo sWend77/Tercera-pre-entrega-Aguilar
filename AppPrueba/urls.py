@@ -21,16 +21,18 @@ urlpatterns = [
     path("edit-perfil/", editar_perfil, name = "EditarPerfil"),
     path("agregar-avatar/", agregar_avatar, name = "AgregarAvatar"),
     path("about/", about, name = "AboutMe"),
-    path("detail-categoria/<pk>", DetailCategoria.as_view(), name = "DetalleCategoria"),
+    path("detail-categoria/<int:pk>", DetailCategoria.as_view(), name = "DetalleCategoria"),
     path("publicaciones/", ListaPublicaciones.as_view(), name = "ListaPublicaiones"),
     path("resultado-busqueda-instrumentos/", buscar_instrumentos, name = "ResultadoInstrumentos"),
-    path("datos-compras/<int:pk>", comprar, name = "DatosCompras"),
+    path("datos-compras/<pk>", comprar, name = "DatosCompras"),
     path('carrito/', ver_carrito, name='MiCarrito'),
     path("seleccionar-cantidad/" , seleccionar_cantidad, name = "SeleccionarCantidad"),
     path("forma-pago/" , elegir_pago, name = "FormaPago"),
     path("resultados-artistas/" , artistas, name = "ResultadosArtistas"),
     path("datos-carrito/<int:pk>" , agregar_carrito, name = "DatosCarrito"),
     path("agregar-producto/<int:pk>" , agregar_al_carrito, name = "AgregarProducto"),
+    path("confirmar-pago/" , confirmar_pago_tarjeta, name = "ConfirmarPago"),
+    path("crear-publicaciones/" , CreatePublicaciones.as_view(), name = "CrearPublicaciones"),
 ]
 
 if settings.DEBUG:

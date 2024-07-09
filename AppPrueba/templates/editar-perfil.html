@@ -7,12 +7,8 @@
         <form action="{% url 'EditarPerfil' %}" method="post"> {% csrf_token %}
             
             {{mi_formulario.as_p}}
-            <p>Address: <input type="text" name="address" value="{{ usuario.address }}"></p>
-            <p>Piso: <input type="number" name="numero-piso" min="0" max="100" value="{{ usuario.piso }}"></p>
-            <p>Tarjeta de credito: <input type="number"></p>
-            <img src="{{ usuario.avatar.url }}" alt="Imagen de {{ context.name }}">
             
-            <button type="submit">Save</button>
+            <button type="submit">Guardar datos</button>
             
         </form>
     </div>

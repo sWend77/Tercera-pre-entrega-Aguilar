@@ -17,10 +17,11 @@
                                 <p>Marca: {{ item.producto.marca }}</p>
                                 <p>Modelo: {{ item.producto.modelo }}</p>
                                 <p>Precio: ${{ item.producto.precio }}</p>
+                                {% with instrumento=item.producto %}
+                                    <p>Cantidad disponible: {{ instrumento.cantidad_disponible }}</p>
+                                    <p>Seleccionar la cantidad a comprar: <input value="1" type="number" name="cantidad" min="1" max="{{ instrumento.cantidad_disponible }}" required></p>
+                                {% endwith %}
                             </div>
-                            <a href="{% url 'DatosCompras' pk=item.pk %}">
-                                <button type="button">Continuar con el pago</button>
-                            </a>
                             <a href="{% url 'EliminarItem' pk=item.pk %}">
                                 <button type="submit">Eliminar item</button>
                             </a>
@@ -28,8 +29,15 @@
                     </ul>
                 </div>
             {% endfor %}
+            <div id="box-pago-carrito">   
+                <p>
+                    La cantidad total a pagar es de: ${{precio_total}}
+                </p>
+                <a href="{% url 'FormaPago' %}">
+                    <button type="button">Continuar con el pago</button>
+                </a>   
+            </div> 
         {% else %}
-            
         <h2 id="mi_h2">
             No hay items en su carrito.
         </h2>

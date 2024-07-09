@@ -53,9 +53,6 @@ class Avatar (models.Model):
     def __str__(self):
         return f'Avatar #{self.id}'
     
-
-
-        
 class Instrumento(models.Model):
     
     TIPO_CHOICES = [
@@ -70,7 +67,7 @@ class Instrumento(models.Model):
         ('flautas' , 'Flautas'),
     ]
     
-    marca = models.CharField(max_length=50, default='Sin marca')
+    marca = models.CharField(max_length=50, default='')
     modelo = models.CharField(max_length=50)
     precio = models.DecimalField(max_digits=10, decimal_places=2)
     cantidad_disponible = models.IntegerField(default=0)
@@ -78,7 +75,7 @@ class Instrumento(models.Model):
     tipo = models.CharField(max_length=50, default="", choices=TIPO_CHOICES)
     
     def __str__(self):
-        return self.marca
+        return (self.tipo + " " + self.marca)
 
 class CategoriaInstrumentos (models.Model):
     
@@ -90,7 +87,7 @@ class CategoriaInstrumentos (models.Model):
 
 class UserProfile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
-    address = models.CharField(max_length=255, blank=True)
+    direccion = models.CharField(max_length=255, blank=True)
     piso = models.IntegerField(blank=True, null=True)
     imagen = models.ImageField(upload_to='avatares', blank=True , null=True)
     

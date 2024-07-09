@@ -7,18 +7,23 @@
     </h1>
     
     <h2 id="mi_h2">
-        Categorias:
+        Que desea hacer?
     </h2>
     <div id="contenedor-general">
         <ul class="ul-categorias">
             {% for categoria in categorias %}  
-            <li>
-            
-                <a id="generos-links" href="{% url 'DetalleCategoria' pk=categoria.id %}">{{categoria.nombre}}</a>
-                
-                
-            </li>        
+                <li>
+                        
+                    <a id="generos-links" href="{% url 'DetalleCategoria' pk=categoria.pk %}">{{ categoria.nombre }}</a>
+                            
+                </li>        
             {% endfor %} 
+            <li>
+                <a id="generos-links" href="{% url 'CrearPublicaciones' %}">Vender</a>
+            </li>
         </ul>
     </div>      
 {% endblock contenido_variable%}
+
+CrearPublicaciones
+

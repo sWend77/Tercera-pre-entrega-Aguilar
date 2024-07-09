@@ -75,63 +75,65 @@ def login_view (req):
         mi_formulario = AuthenticationForm()
         return render (req, "login.html",{"mi_formulario": mi_formulario})
     
-def registro (req):
-    
+def registro(req):
     if req.method == "POST":
-        
-        mi_formulario = UserCreationForm(req.POST)
+        mi_formulario = CustomUserCreationForm(req.POST)
         
         if mi_formulario.is_valid():
-            
             data = mi_formulario.cleaned_data
-            
             usuario = data["username"]
-            
-            user = authenticate(username = usuario)
-            
             mi_formulario.save()
             
-            return render(req, "index.html" , {"message": f"Bienvenido {usuario}, ya eres miembro de MusecK!"})       
+            return render(req, "index.html", {"message": f"Bienvenido {usuario}, ya eres miembro de MusecK!"})       
             
-        else: return render (req, "index.html" , {"message":"Datos invalidos"})
+        else:
+            return render(req, "index.html", {"message":"Datos invalidos"})
     else:
-        mi_formulario = UserCreationForm()
-        return render (req, "registrarse.html",{"mi_formulario": mi_formulario})    
+        mi_formulario = CustomUserCreationForm()
+        return render(req, "registrarse.html", {"mi_formulario": mi_formulario}) 
 
 @login_required
 def editar_perfil(req):
-    
     usuario = req.user
-    
+
     if req.method == "POST":
-        
-        mi_formulario = UsereEditForm(req.POST, instance=usuario)
-        
+        mi_formulario = UsereEditForm(req.POST, req.FILES, instance=usuario)
+
         if mi_formulario.is_valid():
-            
             data = mi_formulario.cleaned_data
-            
+
             usuario.first_name = data["first_name"]
             usuario.last_name = data["last_name"]
             usuario.email = data["email"]
-            usuario.address = req.POST.get("address")
-            usuario.piso = req.POST.get("numero-piso")
-            usuario.avatar = req.POST.get("imagen")
-            
+
             password2 = data.get("password2")
             if password2:
-                
                 usuario.set_password(password2)
-            
+
             usuario.save()
+
+            user_profile, created = UserProfile.objects.get_or_create(user=usuario)
+            user_profile.direccion = data['direccion']
+            user_profile.piso = data['piso']
+            user_profile.save()
+
+            avatar, created = Avatar.objects.get_or_create(user=usuario)
+            if data['imagen']:
+                avatar.imagen = data['imagen']
+                avatar.save()
+
             return render(req, "index.html", {"message": "Datos actualizados con éxito"})
         else:
-            
             return render(req, "editar-perfil.html", {"mi_formulario": mi_formulario})
-    
     else:
-       
-        mi_formulario = UsereEditForm(instance=usuario)
+        user_profile, created = UserProfile.objects.get_or_create(user=usuario)
+        avatar, created = Avatar.objects.get_or_create(user=usuario)
+        initial_data = {
+            'direccion': user_profile.direccion,
+            'piso': user_profile.piso,
+            'imagen': avatar.imagen,
+        }
+        mi_formulario = UsereEditForm(instance=usuario, initial=initial_data)
         return render(req, "editar-perfil.html", {"mi_formulario": mi_formulario})
     
 
@@ -248,9 +250,10 @@ class DetailPublicaciones (DetailView):
 class CreatePublicaciones (CreateView):
     
     model = Instrumento
-    template_name = "create-instrumento.html"
-    fields =  ["marca"]
-    success_url = "/app-include/lista-publicaciones/"
+    template_name = "crear-publicacion.html"
+    fields =  ['imagen','tipo','marca','modelo','precio','cantidad_disponible']
+    success_url = "/app-include/"
+    context_object_name = 'form'
     
 class UpdatePublicaciones (UpdateView):
     
@@ -264,6 +267,7 @@ class DeletePublicaciones (DeleteView):
     model = Instrumento
     template_name = "delete-instrumento.html"
     success_url = "index.html"
+    
 
 # -------------------------------------------------------------------------------------------------------------------------------------------------------
     
@@ -284,33 +288,46 @@ class DetailCategoria(DetailView):
     
     model = CategoriaInstrumentos
     template_name = "detail-categoria.html"
-    context_object_name = "detalle"
+    context_object_name = "categoria"
     def get_context_data(self, **kwargs):
         contexto = super().get_context_data(**kwargs)
         contexto['form'] = BusquedaForm()
         return contexto
-
-def buscar_instrumentos(req):
     
-    if req.method == "POST": 
-        
+def buscar_instrumentos(req):
+    if req.method == "POST":
         form = BusquedaForm(req.POST)
-            
-        if form.is_valid():
-            
-            marca = form.cleaned_data["marca"]
-            
-            resultados = Instrumento.objects.filter(marca__icontains=marca)
-            
-            return render(req, "resultado_busqueda_instrumentos.html",{"resultados" : resultados})
         
-        else: return  render(req, "index.html",{"message" : "Datos incorrectos"})
+        if form.is_valid():
+            busqueda = form.cleaned_data["buscar"]
+            
+            tipo = ""
+            marca = ""
+            modelo = ""
+            
+            if ' ' in busqueda:
+                tipo, marca, modelo = busqueda.split(' ', 1)
+            else:
+                
+                tipo = busqueda
+                marca = busqueda
+                modelo =busqueda
+
+            
+            resultados =Instrumento.objects.filter(tipo__icontains=tipo, marca__icontains=marca) | \
+                        Instrumento.objects.filter(tipo__icontains=tipo) | \
+                        Instrumento.objects.filter(marca__icontains=marca) | \
+                        Instrumento.objects.filter(tipo__icontains=tipo, marca__icontains=marca, modelo__icontains=modelo) | \
+                        Instrumento.objects.filter(modelo__icontains=modelo) | \
+                        Instrumento.objects.filter(marca__icontains=marca, modelo__icontains=modelo)    
+            
+            return render(req, "resultado_busqueda_instrumentos.html", {"resultados": resultados})
+        else:
+            return render(req, "index.html", {"message": "Datos incorrectos"})
     
     else:
-        
         form = BusquedaForm()
-        
-        return render(req, "detail-categoria.html", {"form" : form})    
+        return render(req, "detail-categoria.html", {"form": form})
 
 def comprar(req, pk):
     
@@ -385,20 +402,27 @@ def agregar_al_carrito(req, pk):
 
 @login_required
 def ver_carrito(req):
-    
     carrito, creado = Carrito.objects.get_or_create(usuario=req.user)
-    
     items_carrito = ItemCarrito.objects.filter(carrito=carrito)
     
-    return render(req, 'carrito.html', {'carrito': carrito, 'items_carrito': items_carrito})
+    if req.method == "POST":
+        for item in items_carrito:
+            cantidad = int(req.POST.get(f'cantidad_{item.id}', 1))
+            item.cantidad = cantidad
+            item.save()
+        
+    precio_total = sum(item.producto.precio * item.cantidad for item in items_carrito)
+    
+    return render(req, 'carrito.html', {'carrito': carrito, 'items_carrito': items_carrito, 'precio_total': precio_total})
 
+    
 class DeleteItem (DeleteView):
     
     model = ItemCarrito
     template_name = "delete-item.html"
     success_url = "/app-include/carrito/"
     context_object_name = "delete"
-
+    
 
 def tu_vista_principal(req):
     
@@ -406,9 +430,18 @@ def tu_vista_principal(req):
     
     return render(req, 'navbar.html', {'carrito': carrito})
 
+def confirmar_pago_tarjeta(req):
+    
+    return render(req , 'pago-tarjeta.html', {})
 
+def suma_precios(req):
+    items_carrito = Carrito.objects.filter(usuario=req.user)  
+    precio_total = sum(item.producto.precio for item in items_carrito)
 
-
+    return render(req, 'carrito.html', {
+        'items_carrito': items_carrito,
+        'precio_total': precio_total,
+    })
 
 
 

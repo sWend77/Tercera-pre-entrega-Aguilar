@@ -20,10 +20,12 @@
                         <p>Cantidad disponible: {{ instrumento.cantidad_disponible }}</p>
                     </div>   
                     <div id="botones-publicacion">   
-                        
-                        <button type="button"><a href="{% url 'DatosCompras' pk=instrumento.id %}">Comprar</a></button>
-                        <button type="button"><a href="{% url 'DatosCarrito' pk=instrumento.id %}">Agregar al carrito</a></button>
-                    
+                        <a href="{% url 'DatosCompras' pk=instrumento.id %}">
+                            <button type="button">Comprar</button>
+                        </a>
+                        <a href="{% url 'DatosCarrito' pk=instrumento.id %}">
+                            <button type="button">Agregar al carrito</button>
+                        </a>
                     </div>      
                 </li>
             </ul>
@@ -31,7 +33,9 @@
         {% endfor %}
     </div>
 {% else %}
-    <p>No se encontraron instrumentos que coincidan con la búsqueda.</p>
+    <h2 id="mi_h2">
+        No se encontraron instrumentos que coincidan con la búsqueda.
+    </h2>
 {% endif %}
 
 {% endblock contenido_variable %}
