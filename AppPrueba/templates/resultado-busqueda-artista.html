@@ -14,15 +14,17 @@
         <ul>
             {% for artista in artistas %}
                 <li>
-                    <img src="{{ artista.imagen.url }}" alt="Imagen de {{ artista.name }}">
-                    <p><strong>Nombre:</strong> {{ artista.name }}</p>
-                    <p><strong>País:</strong> {{ artista.country }}</p>
-                    <p><strong>Álbumes Importantes:</strong> {{ artista.important_albums }}</p>
-                    <p><strong>Fecha de Nacimiento:</strong> {{ artista.birthdate }}</p>
+                    <div style="width: 100%; height: auto; display: flex; flex-direction: row; justify-content: center;" >
+                        <img src="{{ artista.imagen.url }}" alt="Imagen de {{ artista.name }}">
+                    </div>
+                    <p style="display: flex; flex-direction: row; justify-content: center;"><strong>Nombre:</strong> {{ artista.name }}</p>
+                    <p style="display: flex; flex-direction: row; justify-content: center;"><strong>País:</strong> {{ artista.country }}</p>
+                    <p style="display: flex; flex-direction: row; justify-content: center;"><strong>Álbumes Importantes:</strong> {{ artista.important_albums }}</p>
+                    <p style="display: flex; flex-direction: row; justify-content: center;"><strong>Fecha de Nacimiento:</strong> {{ artista.birthdate }}</p>
                     <h3>
                         Biografia
                     </h3>
-                    <p>{{artista.biografia}}</p>
+                    <p >{{artista.biografia}}</p>
                 </li>
                 
             {% endfor %}
