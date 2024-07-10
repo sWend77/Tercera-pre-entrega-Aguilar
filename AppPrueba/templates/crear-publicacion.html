@@ -1,5 +1,5 @@
 {% extends "padre.html" %}
-
+{% load static %}
 {% block contenido_variable %}
 
     <h1 id="mi-h1">
@@ -10,7 +10,7 @@
     </h2>
 
     <div id="contenedor-general">
-        <form action="{% url 'CrearPublicaciones' %}" method="post"> {% csrf_token %}
+        <form action="{% url 'CrearPublicaciones' %}" method="post" enctype="multipart/form-data"> {% csrf_token %}
 
             {{form.as_p}}
 

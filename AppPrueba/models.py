@@ -75,7 +75,7 @@ class Instrumento(models.Model):
     tipo = models.CharField(max_length=50, default="", choices=TIPO_CHOICES)
     
     def __str__(self):
-        return (self.tipo + " " + self.marca)
+        return f'{self.tipo} {self.marca} {self.modelo}'
 
 class CategoriaInstrumentos (models.Model):
     
@@ -108,7 +108,7 @@ class ItemCarrito(models.Model):
     cantidad = models.PositiveIntegerField(default=1)
 
     def __str__(self):
-        return f'{self.cantidad} x {self.producto.nombre} en {self.carrito}'   
+        return f'{self.cantidad} x {self.producto.tipo} en {self.carrito}'   
 
 
 
