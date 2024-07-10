@@ -1,0 +1,30 @@
+{% extends "padre.html" %}
+
+{% block contenido_variable %}
+
+
+<body>
+<div class="container">
+    <h1 id="mi-h1">Pago en Efectivo</h1>
+    <p>Gracias por elegir pagar en efectivo. Por favor, siga las siguientes instrucciones para completar su compra.</p>
+    
+    <p class="important-info">Debe acercarse a la siguiente sucursal para realizar el pago:</p>
+    <p><strong>Dirección:</strong> Calle Falsa 123, Ciudad, País</p>
+    <p><strong>Horario:</strong> Lunes a Viernes, de 9:00 AM a 5:00 PM</p>
+    
+    <p class="important-info">Utilice el siguiente código de referencia al realizar su pago:</p>
+    <p class="reference-code">{{ referencia }}</p>
+    
+    <p>Una vez realizado el pago, su pedido será procesado y recibirá una confirmación por correo electrónico.</p>
+    
+    <div class="footer">
+        <p>Si tiene alguna pregunta, no dude en contactarnos a través de nuestro servicio de atención al cliente.</p>
+        <p>Teléfono: (123) 456-7890</p>
+        <p>Correo electrónico: soporte@tusitio.com</p>
+    </div>
+</div>
+</body>
+</html>
+
+
+{% endblock contenido_variable %}

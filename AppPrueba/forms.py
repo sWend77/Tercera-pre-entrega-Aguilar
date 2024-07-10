@@ -2,7 +2,7 @@ from django import forms
 from django.contrib.auth.forms import UserChangeForm, UserCreationForm
 from django.contrib.auth.models import User 
 from .models import *
-
+from datetime import datetime
 
 
 class Formulario_registro (forms.Form):
@@ -92,7 +92,64 @@ class CustomUserCreationForm(UserCreationForm):
             user.save()
         return user
 
+class CreditoForm(forms.Form):
+    numero_de_tarjeta = forms.CharField(
+        max_length=19,  
+        min_length=13,  
+        widget=forms.TextInput(attrs={'placeholder': '1234 5678 9012 3456'}),
+        label="Número de Tarjeta",
+        required=True
+    )
+    nombre_y_apellido = forms.CharField(
+        max_length=40,
+        widget=forms.TextInput(attrs={'placeholder': 'Nombre del Titular'}),
+        label="Nombre y Apellido del Titular",
+        required=True
+    )
+    fecha_de_vencimiento = forms.DateField(
+        label="Fecha de Vencimiento",
+        input_formats=['%Y-%m'],  # Formato esperado por Django (AAAA-MM)
+        widget=forms.DateInput(attrs={'placeholder': 'MM/AA', 'type': 'month'}),
+        required=True
+    )
+    codigo_de_seguridad = forms.CharField(
+        max_length=4,  
+        min_length=3,
+        widget=forms.TextInput(attrs={'placeholder': 'CVV'}),
+        label="Código de Seguridad (CVV)",
+        required=True
+    )
+    dni_del_titular = forms.CharField(
+        max_length=10,  
+        widget=forms.TextInput(attrs={'placeholder': 'DNI del Titular'}),
+        label="DNI del Titular",
+        required=True
+    )
 
+    def clean_numero_de_tarjeta(self):
+        data = self.cleaned_data['numero_de_tarjeta']
+        if not data.isdigit() or not (13 <= len(data.replace(' ', '')) <= 19):
+            raise forms.ValidationError("Número de tarjeta no válido. Debe tener entre 13 y 19 dígitos.")
+        return data.replace(' ', '')
 
+    def clean_codigo_de_seguridad(self):
+        data = self.cleaned_data['codigo_de_seguridad']
+        if not data.isdigit() or not (3 <= len(data) <= 4):
+            raise forms.ValidationError("Código de seguridad no válido. Debe tener 3 o 4 dígitos.")
+        return data
 
+    def clean_dni_del_titular(self):
+        data = self.cleaned_data['dni_del_titular']
+        if not data.isdigit():
+            raise forms.ValidationError("DNI no válido. Debe contener solo números.")
+        return data
+
+    def clean_fecha_de_vencimiento(self):
+        fecha_de_vencimiento = self.cleaned_data['fecha_de_vencimiento']
+        if fecha_de_vencimiento:
+            # Validar que la fecha sea mayor o igual a la fecha actual
+            today = datetime.today().date()
+            if fecha_de_vencimiento < today:
+                raise forms.ValidationError("La fecha de vencimiento no puede ser anterior a la fecha actual.")
+        return fecha_de_vencimiento
  

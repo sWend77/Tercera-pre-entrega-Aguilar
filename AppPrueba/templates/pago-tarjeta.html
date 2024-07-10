@@ -3,36 +3,21 @@
 {% block contenido_variable %}
 
     <h1 id="mi-h1">
-        
+        Metodo de pago
     </h1>
     <h2 id="mi_h2">
-        Ingrese el codigo de su tarjeta:
+        Ingrese los datos de su tarjeta:
     </h2>
 
-    <div id="contenedor-general">
-        {% for item in items_carrito %}
-            <div id="contenedor-publicacion">
-                <ul class="detalle-publicacion">
-                    <li class="lista-pubs">
-                        {% if item.producto.imagen %}
-                            <img id="mis-img" src="{{ item.producto.imagen.url }}" alt="Imagen del instrumento">
-                        {% endif %}
-                        <div class="datos-publicacion">
-                            <p>Marca: {{ item.producto.marca }}</p>
-                            <p>Modelo: {{ item.producto.modelo }}</p>
-                            <p>Precio: ${{ item.producto.precio }}</p>
-                            {% with instrumento=item.producto %}
-                                <p>Cantidad disponible: {{ instrumento.cantidad_disponible }}</p>
-                                <p>Seleccionar la cantidad a comprar: <input value="1" type="number" name="cantidad" min="1" max="{{ instrumento.cantidad_disponible }}" required></p>
-                            {% endwith %}
-                        </div>
-                        <a href="{% url 'EliminarItem' pk=item.pk %}">
-                            <button type="submit">Eliminar item</button>
-                        </a>
-                    </li>
-                </ul>
-            </div>
-        {% endfor %}
+    <div id="contenedor-general" style="display: flex; flex-direction: column; align-items: center; justify-content: center;">
+        
+        <form method="post">
+            {% csrf_token %}
+            {{ mi_formulario.as_p }}
+            <button type="submit">Completar pago</button>
+        </form>
+
     </div>
+
 
 {% endblock contenido_variable %}

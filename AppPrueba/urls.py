@@ -31,8 +31,10 @@ urlpatterns = [
     path("resultados-artistas/" , artistas, name = "ResultadosArtistas"),
     path("datos-carrito/<int:pk>" , agregar_carrito, name = "DatosCarrito"),
     path("agregar-producto/<int:pk>" , agregar_al_carrito, name = "AgregarProducto"),
-    path("confirmar-pago/" , confirmar_pago_tarjeta, name = "ConfirmarPago"),
+    path("confirmar-pago/" , completar_tarjeta, name = "ConfirmarPago"),
     path("crear-publicaciones/" , CreatePublicaciones.as_view(), name = "CrearPublicaciones"),
+    path("pago-efectivo/" , pago_efectivo, name = "PagoEfectivo"),
+    path("pago-final/" , pago_final, name = "PagoFinal"),
 ]
 
 if settings.DEBUG:

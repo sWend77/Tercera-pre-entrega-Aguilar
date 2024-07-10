@@ -11,6 +11,8 @@ from django.contrib.auth.forms import AuthenticationForm, UserCreationForm, User
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.shortcuts import render, get_object_or_404, redirect
+from django.contrib import messages
+from django.db.models import Q
 
 def inicio (req):
     
@@ -146,6 +148,38 @@ def agregar_avatar(req):
 def about (req):
     
     return render (req, 'about.html', {})
+
+def completar_tarjeta(req):
+    if req.method == "POST":
+        mi_formulario = CreditoForm(req.POST)
+        
+        if mi_formulario.is_valid():
+            
+            carrito_usuario = Carrito.objects.filter(usuario=req.user).first()
+            
+            if carrito_usuario:
+                
+                carrito_usuario.productos.clear()
+                
+                messages.success(req, '¡Pago completado! Los ítems del carrito han sido eliminados.')
+            else:
+                messages.warning(req, 'No se encontró un carrito asociado a tu usuario.')
+            
+            return redirect('PagoFinal')  
+        else:
+            
+            return render(req, "pago-tarjeta.html", {"mi_formulario": mi_formulario})
+    else:
+        mi_formulario = CreditoForm()
+        return render(req, "pago-tarjeta.html", {"mi_formulario": mi_formulario})
+
+def pago_efectivo(req):
+    
+    return render (req, 'pago-efectivo.html', {})
+    
+def pago_final (req):
+    
+    return render (req, 'pago-final.html', {}) 
     
 #Seccion Musica--------------------------------------------------------------------------------------------------------------
 
@@ -283,25 +317,26 @@ def buscar_instrumentos(req):
         if form.is_valid():
             busqueda = form.cleaned_data["buscar"]
             
-            tipo = ""
-            marca = ""
-            modelo = ""
             
-            if ' ' in busqueda:
-                tipo, marca, modelo = busqueda.split(' ', 1)
-            else:
-                
-                tipo = busqueda
-                marca = busqueda
-                modelo =busqueda
-
+            palabras = busqueda.split()
             
-            resultados =Instrumento.objects.filter(tipo__icontains=tipo, marca__icontains=marca) | \
-                        Instrumento.objects.filter(tipo__icontains=tipo) | \
-                        Instrumento.objects.filter(marca__icontains=marca) | \
-                        Instrumento.objects.filter(tipo__icontains=tipo, marca__icontains=marca, modelo__icontains=modelo) | \
-                        Instrumento.objects.filter(modelo__icontains=modelo) | \
-                        Instrumento.objects.filter(marca__icontains=marca, modelo__icontains=modelo)    
+            
+            query = Q()
+            
+            if len(palabras) == 1:
+                query = Q(tipo__icontains=palabras[0]) | Q(marca__icontains=palabras[0]) | Q(modelo__icontains=palabras[0])
+            elif len(palabras) == 2:
+                query = (Q(tipo__icontains=palabras[0]) & Q(marca__icontains=palabras[1])) | \
+                        (Q(tipo__icontains=palabras[0]) & Q(modelo__icontains=palabras[1])) | \
+                        (Q(marca__icontains=palabras[0]) & Q(modelo__icontains=palabras[1])) | \
+                        (Q(marca__icontains=palabras[0]) & Q(tipo__icontains=palabras[1])) | \
+                        (Q(modelo__icontains=palabras[0]) & Q(tipo__icontains=palabras[1])) | \
+                        (Q(modelo__icontains=palabras[0]) & Q(marca__icontains=palabras[1]))
+            elif len(palabras) == 3:
+                query = Q(tipo__icontains=palabras[0]) & Q(marca__icontains=palabras[1]) & Q(modelo__icontains=palabras[2])
+            
+            
+            resultados = Instrumento.objects.filter(query).distinct()
             
             return render(req, "resultado_busqueda_instrumentos.html", {"resultados": resultados})
         else:
@@ -411,10 +446,6 @@ def tu_vista_principal(req):
     carrito = Carrito.objects.get(usuario=req.user)
     
     return render(req, 'navbar.html', {'carrito': carrito})
-
-def confirmar_pago_tarjeta(req):
-    
-    return render(req , 'pago-tarjeta.html', {})
 
 def suma_precios(req):
     items_carrito = Carrito.objects.filter(usuario=req.user)  
