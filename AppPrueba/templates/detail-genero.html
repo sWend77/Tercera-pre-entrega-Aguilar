@@ -1,28 +1,63 @@
 {% extends "padre.html" %}
-
+{% load static %}
 {% block contenido_variable %}
 
 
     {% if detalle.id == 35 %}
         <h1 id="mi-h1" >
-            Conozca mas su genero preferido
+            Conozca mas sobre su genero preferido
         </h1>
         <h2 id="mi_h2">
             Rock Clasico
         </h2>
-        <div id="contenedor-general"> 
+        <div id="contenedor-general" style="display: flex; flex-direction: column; justify-content: center; align-items: center;"> 
+            
+            <h3 style="font-family: 'Times New Roman', Times, serif; font-style: italic; font-size: 40px; margin-bottom: 20px;">
+                Algunos de sus referentes mas importantes: 
+            </h3>
+            <div style="width: 90%; height: 500px;margin: 40px; background: rgb(134, 134, 134); border: solid 2px black; display: flex; flex-flow: row wrap; justify-content: center; ">
+                <img src="{% static 'assets/img/referentes-rock-1.jpg' %}" alt="Rock Clásico" id="imagen-rock-clasico" style="width: 20%; height: 40%; margin: 20px;">
+                <img src="{% static 'assets/img/referentes-rock-2.jpg' %}" alt="Rock Clásico" id="imagen-rock-clasico" style="width: 20%; height: 40%;margin: 20px;">
+                <img src="{% static 'assets/img/referentes-rock-3.jpg' %}" alt="Rock Clásico" id="imagen-rock-clasico" style="width: 20%; height: 40%;margin: 20px;">
+                <img src="{% static 'assets/img/referentes-rock-4.png' %}" alt="Rock Clásico" id="imagen-rock-clasico" style="width: 20%; height: 40%;margin: 20px;">
+                <img src="{% static 'assets/img/referentes-rock-5.jpg' %}" alt="Rock Clásico" id="imagen-rock-clasico" style="width: 20%; height: 40%;margin: 20px;">
+                <img src="{% static 'assets/img/referentes-rock-6.jpg' %}" alt="Rock Clásico" id="imagen-rock-clasico" style="width: 20%; height: 40%;margin: 20px;">
+            </div>
+            <h3 style="font-family: 'Times New Roman', Times, serif; font-style: italic; font-size: 40px; margin-bottom: 40px;">
+                Una reliquia del pasado...
+            </h3>
             <p id="parrafo-index">
                 El rock clásico es un género musical que emerge en la década de 1960 y se consolida a lo largo de los años 70, dejando una huella indeleble en la historia de la música popular. Este estilo es reconocido por sus letras profundas y a menudo introspectivas, acompañadas de riffs de guitarra potentes y solos memorables. Se caracteriza por su energía cruda y la habilidad de los músicos para fusionar elementos de blues, jazz y música folk en un formato accesible y atractivo para las masas.
-
+            </p>
+            <p id="parrafo-index">
                 Bandas icónicas del rock clásico incluyen a Led Zeppelin, conocidos por álbumes influyentes como "Led Zeppelin IV" (1971), que incluye la épica "Stairway to Heaven", una canción que ha alcanzado un estatus mítico en la historia del rock. Led Zeppelin también es celebrado por sus potentes actuaciones en vivo y la virtuosidad instrumental de sus miembros, especialmente el guitarrista Jimmy Page y el cantante Robert Plant.
-
+            </p>
+            <p id="parrafo-index">
                 The Rolling Stones es otra banda emblemática del rock clásico, famosa por su longevidad y su capacidad para evolucionar con los tiempos. Álbumes como "Sticky Fingers" (1971) y "Exile on Main St." (1972) son testimonios de su influencia duradera, con canciones como "Paint It Black" y "Sympathy for the Devil" que han dejado una marca indeleble en la cultura musical.
-
+            </p>
+            <p id="parrafo-index">
                 Pink Floyd revolucionó el rock clásico con su enfoque experimental y su capacidad para crear álbumes conceptuales que se convirtieron en monumentos musicales. "The Dark Side of the Moon" (1973) es quizás su obra maestra más conocida, con temas como "Money" y "Time" que exploran temas existenciales y sociales de una manera que solo esta banda podría hacer.
-
+            </p>
+            <p id="parrafo-index">
                 Deep Purple, con su enérgico "Smoke on the Water" y su fusión distintiva de rock y elementos clásicos, también dejó una marca indeleble en el género. Otros artistas como The Who, con su álbum "Who's Next" (1971) y su himno "Baba O'Riley", y Queen, liderados por la carismática voz de Freddie Mercury y conocidos por canciones como "Bohemian Rhapsody", también son pilares del rock clásico.
-
+            </p>
+            <p id="parrafo-index">
                 En resumen, el rock clásico no solo definió una época musical, sino que sigue siendo una influencia profunda en la música contemporánea. Sus bandas y álbumes no solo son venerados por su innovación musical y habilidad técnica, sino también por su capacidad para conectar emocionalmente con generaciones de oyentes a través de letras poderosas y composiciones atemporales.
+            </p>
+            <p id="parrafo-index">
+                El rock clásico es un universo musical vasto y diverso que trajo consigo una revolución cultural sin precedentes. Más allá de su impacto inicial en las décadas de 1960 y 1970, este género ha continuado evolucionando y expandiéndose a lo largo de los años, dejando una marca indeleble en la historia de la música popular.
+            </p>
+            <p id="parrafo-index">
+                Una de las características distintivas del rock clásico es su capacidad para reflejar y comentar sobre los temas sociales, políticos y personales de su tiempo a través de letras profundas y melodías poderosas. Bandas como The Beatles, conocidos por sus innovadores experimentos en el estudio y su capacidad para reinventarse en cada álbum, establecieron nuevos estándares para la composición y producción musical. Su álbum "Sgt. Pepper's Lonely Hearts Club Band" (1967), por ejemplo, no solo expandió los límites del rock sino que también introdujo elementos de psicodelia y surrealismo en la música popular.
+            </p>
+            <p id="parrafo-index">
+                Otro aspecto crucial del rock clásico es su diversidad estilística. Desde el rock progresivo de bandas como Genesis y Yes, que exploraron estructuras complejas y temas filosóficos en álbumes conceptuales, hasta el punk rock crudo y directo de grupos como The Ramones y The Clash, que desafiaron las convenciones establecidas con su energía frenética y letras provocativas, el género abarca una amplia gama de sonidos y estilos.
+            </p>
+            <p id="parrafo-index">
+                El impacto cultural del rock clásico también se refleja en su influencia duradera en la moda, el arte y la política. Bandas como The Velvet Underground, con su enfoque vanguardista y su colaboración con artistas visuales como Andy Warhol, ayudaron a establecer conexiones entre el rock y el arte contemporáneo. En el ámbito político, artistas como Bob Dylan utilizaron su música para abordar temas de justicia social y derechos civiles, convirtiéndose en voces influyentes en movimientos de cambio social.
+            </p>
+            <p id="parrafo-index">
+                En conclusión, el rock clásico no solo marcó una era musical, sino que también continúa resonando en la cultura contemporánea como un testimonio de la creatividad humana, la expresión artística y la búsqueda de significado en un mundo en constante evolución. Sus letras poéticas y su diversidad musical han dejado un legado perdurable que sigue inspirando a músicos y oyentes en todo el mundo.
             </p>
         </div>   
     {% elif detalle.id == 2%}
@@ -32,15 +67,51 @@
         <h2 id="mi_h2">
             Cumbia
         </h2>
-        <div id="contenedor-general">     
+        
+        <div id="contenedor-general" style="display: flex; flex-direction: column; justify-content: center; align-items: center;"> 
+            
+            <h3 style="font-family: 'Times New Roman', Times, serif; font-style: italic; font-size: 40px; margin-bottom: 20px;">
+                Algunos de sus referentes mas importantes: 
+            </h3>
+            <div style="width: 90%; height: 500px;margin: 40px; background: rgb(134, 134, 134); border: solid 2px black; display: flex; flex-flow: row wrap; justify-content: center; ">
+                <img src="{% static 'assets/img/referentes-cumbia-1.jpg' %}" alt="Rock Clásico" id="imagen-rock-clasico" style="width: 20%; height: 40%; margin: 20px;">
+                <img src="{% static 'assets/img/referentes-cumbia-2.jpg' %}" alt="Rock Clásico" id="imagen-rock-clasico" style="width: 20%; height: 40%;margin: 20px;">
+                <img src="{% static 'assets/img/referentes-cumbia-3.jpg' %}" alt="Rock Clásico" id="imagen-rock-clasico" style="width: 20%; height: 40%;margin: 20px;">
+                <img src="{% static 'assets/img/referentes-cumbia-4.jpg' %}" alt="Rock Clásico" id="imagen-rock-clasico" style="width: 20%; height: 40%;margin: 20px;">
+                <img src="{% static 'assets/img/referentes-cumbia-5.jpg' %}" alt="Rock Clásico" id="imagen-rock-clasico" style="width: 20%; height: 40%;margin: 20px;">
+                <img src="{% static 'assets/img/referentes-cumbia-6.jpg' %}" alt="Rock Clásico" id="imagen-rock-clasico" style="width: 20%; height: 40%;margin: 20px;">
+            </div>
+            <h3 style="font-family: 'Times New Roman', Times, serif; font-style: italic; font-size: 40px; margin-bottom: 40px;">
+                Un genero popular...
+            </h3>
+            
             <p id="parrafo-index">
                 La cumbia es un género musical popular originario de Colombia que se ha extendido por toda América Latina, cada país ha aportado su propio estilo y variante a este género. En sus inicios, la cumbia tradicional estaba marcada por su ritmo contagioso y la fusión de elementos africanos, indígenas y españoles. Con el tiempo, la cumbia ha evolucionado y se ha diversificado, adaptándose a los gustos y contextos locales.
-
+            </p>
+            <p id="parrafo-index">
                 Bandas icónicas como Los Ángeles Azules han popularizado la cumbia moderna en México y más allá, con álbumes como "Cómo Te Voy a Olvidar" y "De Plaza en Plaza". Canciones como "17 Años" y "El Listón de tu Pelo" se han convertido en himnos de fiestas y eventos sociales en toda Latinoamérica. Por otro lado, Grupo Niche ha llevado la cumbia colombiana a nuevos niveles con éxitos como "Cali Pachanguero" y "Gotas de Lluvia", fusionando elementos de salsa y jazz en su estilo característico.
-
+            </p>
+            <p id="parrafo-index">
                 En Argentina, Los Palmeras han dejado una marca indeleble con su estilo único de cumbia santafesina, destacándose álbumes como "La Suavecita" y "Soy Parrandero". Su canción "Bombón Asesino" es un clásico que no puede faltar en ninguna celebración.
-
+            </p>
+            <p id="parrafo-index">
                 Estas bandas y muchas otras han contribuido a la riqueza y diversidad de la cumbia, manteniendo viva una tradición musical que sigue siendo querida y bailada en todo el continente.
+                La cumbia es un género musical que, desde sus orígenes en Colombia, ha capturado el corazón y los ritmos de toda América Latina. Esta música contagiosa y llena de vida es el resultado de una fusión cultural única que combina elementos africanos, indígenas y españoles. A medida que se ha extendido por diferentes países, cada región ha añadido su propio sabor y estilo, enriqueciendo aún más su diversidad.
+            </p>
+            <p id="parrafo-index">
+                En México, la cumbia moderna ha encontrado un hogar vibrante gracias a bandas como Sonora Dinamita, conocida por éxitos como "Mi Cucu" y "Qué Bello". Estas canciones son emblemáticas en cualquier fiesta mexicana, destacándose por sus ritmos bailables y su capacidad para animar a multitudes enteras.
+            </p>
+            <p id="parrafo-index">
+                En Colombia, además de la cumbia tradicional, surgieron innovaciones como la cumbia villera, un subgénero popular en los barrios marginales de las ciudades, que incorpora letras cotidianas y ritmos más urbanos. Grupos como Damas Gratis han sido pioneros en esta vertiente, llevando la cumbia a nuevas audiencias jóvenes con canciones como "Me Vas a Extrañar" y "No Eres Tú, Soy Yo".
+            </p>
+            <p id="parrafo-index">
+                En Perú, la cumbia se fusionó con elementos de la música amazónica para dar origen a la cumbia amazónica o chicha, caracterizada por sus sonidos psicodélicos y letras que reflejan la vida urbana y rural. Bandas como Los Mirlos y Juaneco y su Combo son iconos de este estilo, conocidos por canciones como "La Danza de los Mirlos" y "Dale Juaneco".
+            </p>
+            <p id="parrafo-index">
+                En Chile, la cumbia se mezcló con ritmos tropicales y baladas románticas, creando un sonido distintivo que ha perdurado a través de los años. Grupos como La Sonora de Tommy Rey y La Noche son representativos de esta evolución musical, con éxitos como "A Bailar la Cumbia" y "El Rey del Timbal".
+            </p>
+            <p id="parrafo-index">
+                En conclusión, la cumbia no solo es un género musical, sino un fenómeno cultural que sigue evolucionando y adaptándose, manteniendo su relevancia y celebrando la diversidad de Latinoamérica a través de sus ritmos irresistibles y letras emocionantes.
             </p>
         </div>
     {% elif detalle.id == 3 %}
@@ -50,20 +121,57 @@
         <h2 id="mi_h2">
             Regueton
         </h2>
-        <div id="contenedor-general">      
+        <div id="contenedor-general" style="display: flex; flex-direction: column; justify-content: center; align-items: center;"> 
+            
+            <h3 style="font-family: 'Times New Roman', Times, serif; font-style: italic; font-size: 40px; margin-bottom: 20px;">
+                Algunos de sus referentes mas importantes: 
+            </h3>
+            <div style="width: 90%; height: 500px;margin: 40px; background: rgb(134, 134, 134); border: solid 2px black; display: flex; flex-flow: row wrap; justify-content: center; ">
+                <img src="{% static 'assets/img/referentes-reggaeton-1.jpg' %}" alt="Rock Clásico" id="imagen-rock-clasico" style="width: 20%; height: 40%; margin: 20px;">
+                <img src="{% static 'assets/img/referentes-reggaeton-2.jpg' %}" alt="Rock Clásico" id="imagen-rock-clasico" style="width: 20%; height: 40%;margin: 20px;">
+                <img src="{% static 'assets/img/referentes-reggaeton-3.webp' %}" alt="Rock Clásico" id="imagen-rock-clasico" style="width: 20%; height: 40%;margin: 20px;">
+                <img src="{% static 'assets/img/referentes-reggaeton-4.jpg' %}" alt="Rock Clásico" id="imagen-rock-clasico" style="width: 20%; height: 40%;margin: 20px;">
+                <img src="{% static 'assets/img/referentes-reggaeton-5.jpg' %}" alt="Rock Clásico" id="imagen-rock-clasico" style="width: 20%; height: 40%;margin: 20px;">
+                <img src="{% static 'assets/img/referentes-reggaeton-6.jpg' %}" alt="Rock Clásico" id="imagen-rock-clasico" style="width: 20%; height: 40%;margin: 20px;">
+            </div>
+            <h3 style="font-family: 'Times New Roman', Times, serif; font-style: italic; font-size: 40px; margin-bottom: 40px;">
+                Un genero urbano...
+            </h3>    
             <p id="parrafo-index"> 
                 El reguetón es un género musical urbano que surge en Puerto Rico a finales del siglo XX y se convierte en un fenómeno global en las décadas siguientes. Caracterizado por su ritmo contagioso, influencias de dancehall y letras que abordan temas de fiesta, amor, desamor y la vida en la calle, el reguetón ha revolucionado la música latina contemporánea.
-
+            </p>
+            <p id="parrafo-index"> 
                 Uno de los pioneros del reguetón es Daddy Yankee, conocido como el "Big Boss", quien alcanzó fama internacional con su álbum "Barrio Fino" (2004). Canciones como "Gasolina" se convirtieron en himnos del género y abrieron las puertas para que artistas como Don Omar también conquistaran las listas de éxitos con álbumes como "The Last Don" (2003).
-
+            </p>
+            <p id="parrafo-index"> 
                 Otro ícono del reguetón es Wisin & Yandel, conocidos por su habilidad para fusionar reguetón con otros géneros como la música electrónica y el pop latino. Álbumes como "Pa'l Mundo" (2005) catapultaron su carrera y colaboraciones con artistas como Jennifer Lopez en "Follow the Leader" demostraron la influencia global del género.
-
+            </p>
+            <p id="parrafo-index"> 
                 Nicky Jam, con su estilo único y sus colaboraciones con artistas internacionales, también ha dejado una huella significativa en el reguetón moderno. Canciones como "El Perdón" con Enrique Iglesias se convirtieron en éxitos mundiales, mostrando la versatilidad del género para llegar a audiencias de diferentes culturas y países.
-
+            </p>
+            <p id="parrafo-index"> 
                 Bad Bunny ha llevado el reguetón a nuevas alturas con su enfoque fresco y su capacidad para mezclar géneros como el trap y el hip hop con elementos del reguetón tradicional. Álbumes como "YHLQMDLG" (2020) y "El Último Tour Del Mundo" (2020) han redefinido las expectativas del género y han inspirado a una nueva generación de artistas urbanos.
-
+            </p>
+            <p id="parrafo-index"> 
                 En resumen, el reguetón no solo ha dominado las listas de éxitos a nivel mundial, sino que ha redefinido la música latina contemporánea con su energía contagiosa, ritmos bailables y letras que resuenan con millones de fanáticos alrededor del mundo.
             </p>
+            <p id="parrafo-index"> 
+                Otro ícono del reguetón es Wisin & Yandel, conocidos por su habilidad para fusionar reguetón con otros géneros como la música electrónica y el pop latino. Álbumes como "Pa'l Mundo" (2005) catapultaron su carrera y colaboraciones con artistas como Jennifer Lopez en "Follow the Leader" demostraron la influencia global del género.
+            </p>
+            <p id="parrafo-index">   
+                Daddy Yankee, apodado "El Rey del Reguetón," ha sido fundamental en la popularización del género a nivel mundial. Su álbum "Barrio Fino" (2004), con el icónico sencillo "Gasolina," es considerado uno de los más influyentes en la historia del reguetón, estableciendo el estándar para futuras producciones y artistas.
+            </p>
+            <p id="parrafo-index"> 
+                Otro influyente en la evolución del reguetón es Don Omar, quien se destaca por su versatilidad y capacidad para incorporar elementos de otros estilos musicales en su trabajo. Canciones como "Danza Kuduro" y "Pobre Diabla" han dejado una marca imborrable, atrayendo a una amplia audiencia internacional.
+            </p>
+            <p id="parrafo-index"> 
+                J Balvin, con su estilo vibrante y colaboraciones con artistas de diversos géneros, ha jugado un papel crucial en llevar el reguetón a las principales plataformas musicales. Álbumes como "Energía" (2016) y "Colores" (2020) han ampliado los límites del género, mostrando su capacidad para reinventarse continuamente.
+            </p>
+            <p id="parrafo-index"> 
+                Karol G ha roto barreras como una de las mujeres más influyentes en el reguetón actual. Su álbum "Ocean" (2019) y éxitos como "Tusa" en colaboración con Nicki Minaj han sido fundamentales en su ascenso a la fama, destacando la creciente diversidad y aceptación del género a nivel global.
+            </p>
+            <p id="parrafo-index"> 
+                En resumen, el reguetón no solo ha dominado las listas de éxitos a nivel mundial, sino que ha redefinido la música latina contemporánea con su energía contagiosa, ritmos bailables y letras que resuenan con millones de fanáticos alrededor del mundo.
         </div>   
     {% elif detalle.id == 4 %}
         <h1 id="mi-h1" >
