@@ -1,6 +1,6 @@
 Primero que nada, quiero aclarar que el "about me" lo hice con el "about" del footer, aproveche que estaba ahi y redireccione la pagina a un html que cree.
 
-LINK VIDEO MUESTRA DEL SITIO: 
+#### LINK VIDEO MUESTRA DEL SITIO: https://drive.google.com/file/d/1Mgx8F1ZfeXPMMe7TnR2yMMFmHKrimMiN/view?usp=drive_link#### 
 
 ## Autores ✒️
 
