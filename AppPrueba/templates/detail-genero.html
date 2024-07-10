@@ -353,50 +353,7 @@
 
             </p>
         </div>  
-    {% elif detalle.id == 20 %}       
-        <h1 id="mi-h1" >
-            Conozca mas su genero preferido
-        </h1>
-        <h2 id="mi_h2">
-            Electro
-        </h2>
-        <div id="contenedor-general">     
-            <p id="parrafo-index">
-                El electro, abreviatura de "electro-funk", es un género musical que emergió en la década de 1980, influido por el funk, el hip-hop y la música electrónica. Se caracteriza por su uso prominente de sintetizadores, cajas de ritmos y secuenciadores, creando un sonido futurista y bailable que ha dejado una marca indeleble en la música popular.
-
-                Uno de los pioneros del electro fue Afrika Bambaataa, quien junto a su grupo Soulsonic Force, lanzó "Planet Rock" en 1982. Esta canción fusionó elementos de funk, rock y electrónica, sentando las bases del electro y del hip-hop electrónico.
-                
-                Kraftwerk, originarios de Alemania, también fueron fundamentales en el desarrollo del electro con álbumes como "Computer World" (1981). Su enfoque en la música electrónica y las letras que exploran la relación entre el hombre y la tecnología han inspirado a generaciones de músicos en todo el mundo.
-                
-                El electro se convirtió en un fenómeno global a finales de los años 80 y principios de los 90, con artistas como Egyptian Lover, Mantronix y Juan Atkins, conocido como el "Padrino del Techno", quien con su proyecto Cybotron, lanzó "Clear" en 1983, un tema seminal que fusionó el electro con el techno emergente.
-                
-                En las décadas siguientes, el electro ha evolucionado y se ha diversificado, influyendo en géneros como el EDM (Electronic Dance Music) y el synthwave. Artistas contemporáneos como Justice, Daft Punk y The Chemical Brothers han llevado el electro a nuevas alturas, mezclando su estética retro futurista con beats irresistibles y melodías infecciosas.
-                
-                En resumen, el electro es más que un género musical; es una celebración de la creatividad y la innovación tecnológica. Su influencia perdura en la música electrónica moderna, recordándonos constantemente la capacidad del sonido electrónico para conectar culturas y generaciones en una experiencia de baile y reflexión sonora.
-            </p>
-        </div>
-    {% elif detalle.id == 30 %}  
-        <h1 id="mi-h1" >
-            Conozca mas su genero preferido
-        </h1>
-        <h2 id="mi_h2">
-            Indie
-        </h2>
-        <div id="contenedor-general">     
-            <p id="parrafo-index">
-                El indie, abreviatura de "independiente", es un género musical que se distingue por su enfoque autónomo y su rechazo a las convenciones comerciales de la industria musical. Surgió a finales de los años 70 y principios de los 80 como una respuesta a la comercialización del punk rock y la new wave, con bandas que buscaban mantener un control creativo total sobre su música y su imagen.
-
-                Uno de los precursores del indie fue The Smiths, liderados por el carismático vocalista Morrissey y el talentoso guitarrista Johnny Marr. Con álbumes como "The Queen Is Dead" (1986), The Smiths combinaron letras introspectivas con guitarras jangle pop, creando un sonido que resonó entre una generación de jóvenes que buscaban una alternativa a la música pop convencional.
-                
-                En la década de 1990, el indie experimentó un renacimiento con el movimiento britpop, encabezado por bandas como Oasis y Blur en el Reino Unido. Oasis, con su álbum "Definitely Maybe" (1994), y Blur, con "Parklife" (1994), revitalizaron el interés por el indie con himnos que capturaron la esencia de la cultura juvenil británica de la época.
-                
-                El indie no se limita a un solo país o estilo, sino que abarca una variedad de subgéneros y sonidos únicos. En Estados Unidos, bandas como Sonic Youth y Pavement influenciaron el indie rock alternativo con su enfoque experimental y sus letras surrealistas. En Australia, grupos como Tame Impala y Courtney Barnett han llevado el indie a nuevas alturas, fusionando influencias psicodélicas y garage rock con letras poéticas y perspicaces.
-                
-                En la era digital, el indie ha florecido aún más con la democratización de la música a través de plataformas de streaming y redes sociales. Artistas independientes como Bon Iver, Arcade Fire y Vampire Weekend han ganado reconocimiento mundial sin comprometer su integridad artística, manteniendo viva la esencia del indie como un espacio para la innovación y la expresión personal.
-                
-                En resumen, el indie es mucho más que un género musical; es un estado de ánimo, una actitud y una comunidad global de artistas y oyentes que valoran la originalidad y la diversidad. Su capacidad para evolucionar y adaptarse a lo largo del tiempo garantiza que seguirá siendo una fuerza poderosa en la música contemporánea.
-            </p>
-        </div>
+    
     {% elif detalle.id == 31 %}  
         <h1 id="mi-h1" >
             Conozca mas su genero preferido
@@ -404,17 +361,70 @@
         <h2 id="mi_h2">
             Cuarteto
         </h2>
-        <div id="contenedor-general">       
+        <div id="contenedor-general" style="display: flex; flex-direction: column; justify-content: center; align-items: center;"> 
+            
+            <h3 style="font-family: 'Times New Roman', Times, serif; font-style: italic; font-size: 40px; margin-bottom: 20px;">
+                Algunos de sus referentes mas importantes: 
+            </h3>
+            <div style="width: 90%; height: 500px;margin: 40px; background: rgb(134, 134, 134); border: solid 2px black; display: flex; flex-flow: row wrap; justify-content: center; ">
+                <img src="{% static 'assets/img/referentes-cuarteto-1.jpg' %}" alt="Rock Clásico" id="imagen-rock-clasico" style="width: 20%; height: 40%; margin: 20px;">
+                <img src="{% static 'assets/img/referentes-cuarteto-2.jpg' %}" alt="Rock Clásico" id="imagen-rock-clasico" style="width: 20%; height: 40%;margin: 20px;">
+                <img src="{% static 'assets/img/referentes-cuarteto-3.jpg' %}" alt="Rock Clásico" id="imagen-rock-clasico" style="width: 20%; height: 40%;margin: 20px;">
+                <img src="{% static 'assets/img/referentes-cuarteto-4.jpg' %}" alt="Rock Clásico" id="imagen-rock-clasico" style="width: 20%; height: 40%;margin: 20px;">
+                <img src="{% static 'assets/img/referentes-cuarteto-5.jpg' %}" alt="Rock Clásico" id="imagen-rock-clasico" style="width: 20%; height: 40%;margin: 20px;">
+                <img src="{% static 'assets/img/referentes-cuarteto-6.jpg' %}" alt="Rock Clásico" id="imagen-rock-clasico" style="width: 20%; height: 40%;margin: 20px;">
+            </div>
+            <h3 style="font-family: 'Times New Roman', Times, serif; font-style: italic; font-size: 40px; margin-bottom: 40px;">
+                Que viva el baile...
+            </h3>        
             <p id="parrafo-index">
                 El cuarteto es un género musical originario de Córdoba, Argentina, que ha capturado los corazones de generaciones con su ritmo contagioso y su energía festiva. Surgido en los años 60, el cuarteto inicialmente fusionó elementos de la música folclórica argentina con influencias de la cumbia colombiana y el rock and roll. A lo largo de los años, ha evolucionado y diversificado, adaptándose a los gustos cambiantes del público y expandiéndose más allá de las fronteras de Córdoba para convertirse en un fenómeno nacional.
-
+            </p>
+            <p id="parrafo-index">
                 Bandas pioneras como Los Cuarteto Imperial sentaron las bases del género con canciones pegadizas como "La Ventanita" y "La Burrita". Estas primeras agrupaciones establecieron el estilo distintivo del cuarteto, caracterizado por el uso de acordeones, guitarras eléctricas y letras que hablan de amor, fiesta y tradición.
-                
+            </p>
+            <p id="parrafo-index">
                 En las décadas de 1980 y 1990, el cuarteto experimentó un auge significativo con la popularidad de artistas como Carlos "La Mona" Jiménez, conocido como el rey del cuarteto. La Mona Jiménez y su banda llevaron el género a nuevas alturas con álbumes como "El Cuartetazo" y "Aprendiendo a Volar", llenando estadios y creando himnos generacionales como "Quién se ha Tomado Todo el Vino".
-                
+            </p>
+            <p id="parrafo-index"> 
                 En la actualidad, el cuarteto sigue siendo un género vibrante y en constante evolución. Artistas como Ulises Bueno, hijo de Rodrigo Bueno, han revitalizado el género con su estilo moderno y su capacidad para conectar con audiencias jóvenes y veteranas por igual. Canciones como "Intento" y "Dale Vieja Dale" son ejemplos de cómo el cuarteto continúa resonando con su público, combinando la tradición con la innovación.
-                
+            </p>
+            <p id="parrafo-index">  
                 El cuarteto no es solo música; es una celebración de la identidad cordobesa, una expresión de alegría y resistencia que trasciende fronteras regionales para unir a la gente en la pista de baile. Su ritmo contagioso y letras emotivas hacen del cuarteto una parte integral del paisaje musical argentino, asegurando su lugar como uno de los géneros más queridos y celebrados del país.
+            </p>
+            <p id="parrafo-index">
+                El cuarteto es un género musical originario de Córdoba, Argentina, que ha capturado los corazones de generaciones con su ritmo contagioso y su energía festiva. Surgido en los años 60, el cuarteto inicialmente fusionó elementos de la música folclórica argentina con influencias de la cumbia colombiana y el rock and roll. A lo largo de los años, ha evolucionado y diversificado, adaptándose a los gustos cambiantes del público y expandiéndose más allá de las fronteras de Córdoba para convertirse en un fenómeno nacional.
+            </p>
+            <p id="parrafo-index">
+                Bandas pioneras como Los Cuarteto Imperial sentaron las bases del género con canciones pegadizas como "La Ventanita" y "La Burrita". Estas primeras agrupaciones establecieron el estilo distintivo del cuarteto, caracterizado por el uso de acordeones, guitarras eléctricas y letras que hablan de amor, fiesta y tradición.
+            </p>
+            <p id="parrafo-index">
+                En las décadas de 1980 y 1990, el cuarteto experimentó un auge significativo con la popularidad de artistas como Carlos "La Mona" Jiménez, conocido como el rey del cuarteto. La Mona Jiménez y su banda llevaron el género a nuevas alturas con álbumes como "El Cuartetazo" y "Aprendiendo a Volar", llenando estadios y creando himnos generacionales como "Quién se ha Tomado Todo el Vino".
+            </p>
+            <p id="parrafo-index">
+                En la actualidad, el cuarteto sigue siendo un género vibrante y en constante evolución. Artistas como Ulises Bueno, hijo de Rodrigo Bueno, han revitalizado el género con su estilo moderno y su capacidad para conectar con audiencias jóvenes y veteranas por igual. Canciones como "Intento" y "Dale Vieja Dale" son ejemplos de cómo el cuarteto continúa resonando con su público, combinando la tradición con la innovación.
+            </p>
+            <p id="parrafo-index">
+                El cuarteto no es solo música; es una celebración de la identidad cordobesa, una expresión de alegría y resistencia que trasciende fronteras regionales para unir a la gente en la pista de baile. Su ritmo contagioso y letras emotivas hacen del cuarteto una parte integral del paisaje musical argentino, asegurando su lugar como uno de los géneros más queridos y celebrados del país.
+            </p>
+            <h3>Evolución y Nuevas Influencias</h3>
+            <p id="parrafo-index">
+                La evolución del cuarteto ha sido marcada por la incorporación de nuevas influencias y la experimentación con diferentes estilos musicales. En los últimos años, el género ha adoptado elementos del reguetón, la música electrónica y el pop, lo que ha permitido a los artistas de cuarteto alcanzar nuevas audiencias y mantenerse relevantes en la escena musical contemporánea. Grupos como Trulalá y Banda XXI han sido fundamentales en esta fusión de estilos, llevando el cuarteto a nuevas direcciones y ampliando su atractivo.
+            </p>
+            <h3>Impacto Social y Cultural</h3>
+            <p id="parrafo-index">
+                El cuarteto ha jugado un papel importante en la vida social y cultural de Córdoba y de Argentina en general. Las bailantas y clubes de cuarteto son espacios donde las personas de diferentes edades y antecedentes se reúnen para disfrutar de la música, bailar y celebrar juntos. Estos eventos no solo fomentan la diversión y la camaradería, sino que también sirven como lugares de resistencia cultural y de expresión comunitaria.
+            </p>
+            <h3>Iconos Femeninos del Cuarteto</h3>
+            <p id="parrafo-index">
+                Aunque el cuarteto ha sido dominado en gran medida por artistas masculinos, las mujeres también han dejado su huella en el género. Artistas como Lorena Jiménez y La Gata Noelia han ganado reconocimiento por su talento y contribuciones al cuarteto, demostrando que las mujeres también pueden liderar y innovar en este género musical. Estas artistas han ayudado a diversificar el panorama del cuarteto y han inspirado a una nueva generación de músicos.
+            </p>
+            <h3>Futuro del Cuarteto</h3>
+            <p id="parrafo-index">
+                El futuro del cuarteto parece brillante, con nuevos artistas emergentes que continúan llevando el género a nuevas alturas. La accesibilidad de la música a través de plataformas digitales ha permitido que el cuarteto llegue a audiencias globales, expandiendo su influencia más allá de Argentina. Además, la colaboración entre artistas de cuarteto y músicos de otros géneros promete seguir enriqueciendo el sonido y la relevancia del cuarteto en el escenario musical mundial.
+            </p>
+            <p id="parrafo-index">
+                En resumen, el cuarteto no es solo un género musical, sino un fenómeno cultural que refleja la identidad, la alegría y la resiliencia de la gente de Córdoba y de toda Argentina. Su capacidad para adaptarse y evolucionar asegura que continuará siendo una fuerza vital en la música y la cultura durante muchos años más.
             </p>
         </div>
     {% elif detalle.id == 32 %} 
@@ -424,17 +434,76 @@
         <h2 id="mi_h2" >
             Jazz
         </h2>
-        <div id="contenedor-general">        
+        <div id="contenedor-general" style="display: flex; flex-direction: column; justify-content: center; align-items: center;"> 
+            
+            <h3 style="font-family: 'Times New Roman', Times, serif; font-style: italic; font-size: 40px; margin-bottom: 20px;">
+                Algunos de sus referentes mas importantes: 
+            </h3>
+            <div style="width: 90%; height: 500px;margin: 40px; background: rgb(134, 134, 134); border: solid 2px black; display: flex; flex-flow: row wrap; justify-content: center; ">
+                <img src="{% static 'assets/img/referentes-jazz-1.jpg' %}" alt="Rock Clásico" id="imagen-rock-clasico" style="width: 20%; height: 40%; margin: 20px;">
+                <img src="{% static 'assets/img/referentes-jazz-2.jpg' %}" alt="Rock Clásico" id="imagen-rock-clasico" style="width: 20%; height: 40%;margin: 20px;">
+                <img src="{% static 'assets/img/referentes-jazz-3.jpg' %}" alt="Rock Clásico" id="imagen-rock-clasico" style="width: 20%; height: 40%;margin: 20px;">
+                <img src="{% static 'assets/img/referentes-jazz-4.jpg' %}" alt="Rock Clásico" id="imagen-rock-clasico" style="width: 20%; height: 40%;margin: 20px;">
+                <img src="{% static 'assets/img/referentes-jazz-5.jpg' %}" alt="Rock Clásico" id="imagen-rock-clasico" style="width: 20%; height: 40%;margin: 20px;">
+                <img src="{% static 'assets/img/referentes-jazz-6.jpg' %}" alt="Rock Clásico" id="imagen-rock-clasico" style="width: 20%; height: 40%;margin: 20px;">
+            </div>
+            <h3 style="font-family: 'Times New Roman', Times, serif; font-style: italic; font-size: 40px; margin-bottom: 40px;">
+                La complejidad melodica...
+            </h3>          
             <p id="parrafo-index">
                 El jazz es un género musical que surgió a finales del siglo XIX en Estados Unidos y se convirtió en una forma de expresión cultural única que ha influenciado profundamente la música global. Con raíces en la música afroamericana, el jazz se caracteriza por su improvisación, complejidad rítmica y variedad de estilos que han evolucionado a lo largo del tiempo.
-
+            </p>
+            <p id="parrafo-index">
                 El jazz emergió en Nueva Orleans como una fusión de tradiciones musicales africanas, europeas y criollas. Con el tiempo, se ramificó en subgéneros como el swing, bebop, cool jazz, free jazz, entre otros, cada uno con características distintivas que reflejan diferentes períodos y movimientos culturales.
-                
+            </p>
+            <p id="parrafo-index">   
                 Bandas y músicos icónicos han dejado una marca indeleble en la historia del jazz. Louis Armstrong, conocido como "Satchmo", revolucionó el jazz con su virtuosismo en la trompeta y su distintiva voz en canciones como "What a Wonderful World". Duke Ellington, con su orquesta, introdujo arreglos sofisticados y composiciones memorables como "Take the A Train". Miles Davis, pionero del cool jazz, desafió las convenciones con álbumes innovadores como "Kind of Blue", que sigue siendo un hito en la historia del género.
-                
+            </p>
+            <p id="parrafo-index">   
                 El jazz no solo es música; es una forma de arte que refleja la libertad creativa y la improvisación. Desde los clubes nocturnos de Harlem hasta los festivales de jazz en todo el mundo, este género ha inspirado a músicos y aficionados por igual. Su capacidad para fusionar culturas y estilos ha generado colaboraciones únicas y ha sido una fuente de inspiración para músicos de todos los géneros.
-                
+            </p>
+            <p id="parrafo-index">  
                 Hoy en día, el jazz continúa evolucionando con artistas como Esperanza Spalding, Kamasi Washington y Snarky Puppy, quienes exploran nuevas fronteras y mantienen viva la tradición del género. Su influencia perdura en la música contemporánea, asegurando que el jazz siga siendo una fuerza creativa y cultural relevante en el panorama musical global.
+            </p>
+            <p id="parrafo-index">
+                El jazz es un género musical que surgió a finales del siglo XIX en Estados Unidos y se convirtió en una forma de expresión cultural única que ha influenciado profundamente la música global. Con raíces en la música afroamericana, el jazz se caracteriza por su improvisación, complejidad rítmica y variedad de estilos que han evolucionado a lo largo del tiempo. El jazz emergió en Nueva Orleans como una fusión de tradiciones musicales africanas, europeas y criollas. Con el tiempo, se ramificó en subgéneros como el swing, bebop, cool jazz, free jazz, entre otros, cada uno con características distintivas que reflejan diferentes períodos y movimientos culturales.
+            </p>
+            <p id="parrafo-index">
+                Bandas y músicos icónicos han dejado una marca indeleble en la historia del jazz. Louis Armstrong, conocido como "Satchmo", revolucionó el jazz con su virtuosismo en la trompeta y su distintiva voz en canciones como "What a Wonderful World". Duke Ellington, con su orquesta, introdujo arreglos sofisticados y composiciones memorables como "Take the A Train". Miles Davis, pionero del cool jazz, desafió las convenciones con álbumes innovadores como "Kind of Blue", que sigue siendo un hito en la historia del género.
+            </p>
+            <p id="parrafo-index">
+                El jazz no solo es música; es una forma de arte que refleja la libertad creativa y la improvisación. Desde los clubes nocturnos de Harlem hasta los festivales de jazz en todo el mundo, este género ha inspirado a músicos y aficionados por igual. Su capacidad para fusionar culturas y estilos ha generado colaboraciones únicas y ha sido una fuente de inspiración para músicos de todos los géneros. Hoy en día, el jazz continúa evolucionando con artistas como Esperanza Spalding, Kamasi Washington y Snarky Puppy, quienes exploran nuevas fronteras y mantienen viva la tradición del género. Su influencia perdura en la música contemporánea, asegurando que el jazz siga siendo una fuerza creativa y cultural relevante en el panorama musical global.
+            </p>
+            <h3>La Era del Jazz y su Impacto Social</h3>
+            <p id="parrafo-index">
+                
+                La década de 1920, conocida como la Era del Jazz, fue un período crucial para la expansión y popularización del género. Durante esta época, el jazz se convirtió en la banda sonora de los "Años Locos", influyendo en la moda, la danza y la cultura popular en general. La Prohibición en Estados Unidos llevó a la proliferación de clubes clandestinos donde el jazz floreció y se entrelazó con la vibrante vida nocturna de ciudades como Nueva York y Chicago. Músicos como Jelly Roll Morton y Bessie Smith alcanzaron la fama, llevando el jazz a nuevas audiencias y solidificando su lugar en la cultura estadounidense.
+            </p>
+            <h3>Innovaciones y Subgéneros del Jazz</h3>
+            <p id="parrafo-index">
+                
+                El bebop, que surgió en la década de 1940, marcó una evolución significativa en el jazz. Artistas como Charlie Parker y Dizzy Gillespie impulsaron este estilo, caracterizado por tempos rápidos, armonías complejas y un enfoque en la improvisación virtuosa. A diferencia del swing, que era más accesible y orientado al baile, el bebop se centró en la sofisticación musical y la innovación.
+            </p>
+            <p id="parrafo-index">
+                El cool jazz, popularizado por músicos como Chet Baker y Dave Brubeck, ofreció un contraste con el bebop mediante su estilo más relajado y melódico. En los años 1960, el free jazz, liderado por figuras como Ornette Coleman y John Coltrane, desafió las estructuras convencionales del jazz, explorando la libertad total en la improvisación y la expresión musical.
+            </p>
+            <h3>Jazz Fusión y la Incorporación de Nuevos Sonidos</h3>
+            <p id="parrafo-index">
+                
+                A finales de la década de 1960 y durante los años 1970, el jazz fusión emergió como una amalgama de jazz con otros géneros como el rock, el funk y la música electrónica. Miles Davis fue nuevamente una figura central en esta evolución con álbumes pioneros como "Bitches Brew". Bandas como Weather Report y Herbie Hancock's Headhunters también fueron fundamentales en la creación de este subgénero, que continúa influenciando la música hasta hoy.
+            </p>
+            <h3>Educación y Difusión del Jazz</h3>
+            <p id="parrafo-index">
+                
+                El jazz también ha encontrado su lugar en el ámbito académico. Universidades y conservatorios de todo el mundo ofrecen programas de estudios de jazz, promoviendo la enseñanza de técnicas de improvisación, historia del jazz y teoría musical. Festivales internacionales, como el Montreux Jazz Festival y el Newport Jazz Festival, celebran el género anualmente, atrayendo a músicos y aficionados de todas partes del mundo.
+            </p>
+            <h3>El Jazz en la Música Contemporánea</h3>
+            <p id="parrafo-index">
+                
+                El jazz sigue siendo una fuente inagotable de inspiración para artistas contemporáneos en diversos géneros. La influencia del jazz se puede escuchar en el hip-hop, el R&B y la música electrónica, con artistas que frecuentemente samplean grabaciones de jazz o colaboran con músicos de jazz. La escena actual del jazz está llena de innovación, con músicos jóvenes que llevan el legado del jazz hacia nuevas direcciones mientras honran sus raíces.
+            </p>
+            <p id="parrafo-index">
+                En resumen, el jazz es un género en constante evolución, que ha dejado una huella profunda en la música y la cultura global. Desde sus humildes comienzos en Nueva Orleans hasta su lugar en la academia y los grandes escenarios del mundo, el jazz continúa siendo una expresión poderosa de creatividad y libertad artística.
             </p>
         </div>
     {% elif detalle.id == 33 %} 
@@ -444,7 +513,22 @@
         <h2 id="mi_h2">
             Trap
         </h2>
-        <div id="contenedor-general">      
+        <div id="contenedor-general" style="display: flex; flex-direction: column; justify-content: center; align-items: center;"> 
+            
+            <h3 style="font-family: 'Times New Roman', Times, serif; font-style: italic; font-size: 40px; margin-bottom: 20px;">
+                Algunos de sus referentes mas importantes: 
+            </h3>
+            <div style="width: 90%; height: 500px;margin: 40px; background: rgb(134, 134, 134); border: solid 2px black; display: flex; flex-flow: row wrap; justify-content: center; ">
+                <img src="{% static 'assets/img/referentes-jazz-1.jpg' %}" alt="Rock Clásico" id="imagen-rock-clasico" style="width: 20%; height: 40%; margin: 20px;">
+                <img src="{% static 'assets/img/referentes-jazz-2.jpg' %}" alt="Rock Clásico" id="imagen-rock-clasico" style="width: 20%; height: 40%;margin: 20px;">
+                <img src="{% static 'assets/img/referentes-jazz-3.jpg' %}" alt="Rock Clásico" id="imagen-rock-clasico" style="width: 20%; height: 40%;margin: 20px;">
+                <img src="{% static 'assets/img/referentes-jazz-4.jpg' %}" alt="Rock Clásico" id="imagen-rock-clasico" style="width: 20%; height: 40%;margin: 20px;">
+                <img src="{% static 'assets/img/referentes-jazz-5.jpg' %}" alt="Rock Clásico" id="imagen-rock-clasico" style="width: 20%; height: 40%;margin: 20px;">
+                <img src="{% static 'assets/img/referentes-jazz-6.jpg' %}" alt="Rock Clásico" id="imagen-rock-clasico" style="width: 20%; height: 40%;margin: 20px;">
+            </div>
+            <h3 style="font-family: 'Times New Roman', Times, serif; font-style: italic; font-size: 40px; margin-bottom: 40px;">
+                Un estilo urbano...
+            </h3>      
             <p id="parrafo-index">
                 El trap es un género musical contemporáneo que surge a principios del siglo XXI, originado principalmente en Estados Unidos y luego extendiéndose por todo el mundo. Con influencias del hip-hop, el trap se distingue por su ritmo distintivo y sus letras que exploran temas como la vida urbana, el dinero, el éxito y las luchas personales.
 
@@ -457,6 +541,32 @@
                 El trap no solo ha dejado una marca indeleble en la industria musical, sino que también ha redefinido la forma en que se crea y consume música en la era digital. Con plataformas como SoundCloud y YouTube facilitando la difusión de nuevos talentos, el trap ha democratizado el acceso a la fama y ha dado voz a una nueva generación de artistas innovadores.
 
                 En resumen, el trap es más que un género musical; es un fenómeno cultural que continúa evolucionando y expandiendo sus fronteras. Con su capacidad para fusionar influencias y estilos, el trap sigue siendo relevante y emocionante para oyentes de todas las edades en todo el mundo.
+
+                El trap es un género musical contemporáneo que surge a principios del siglo XXI, originado principalmente en Estados Unidos y luego extendiéndose por todo el mundo. Con influencias del hip-hop, el trap se distingue por su ritmo distintivo y sus letras que exploran temas como la vida urbana, el dinero, el éxito y las luchas personales. Originado en los barrios de Atlanta, Georgia, el trap se caracteriza por sus beats pesados y oscuros, a menudo acompañados de sintetizadores y bajos profundos que crean una atmósfera intensa y envolvente. Artistas como Gucci Mane y T.I. fueron pioneros en el género, estableciendo las bases para una ola de artistas que ampliarían y redefinirían el sonido trap.
+
+                Uno de los aspectos distintivos del trap es su capacidad para capturar la realidad cruda y las experiencias cotidianas de la calle. Los temas de la vida en los barrios, la lucha por la supervivencia y el deseo de éxito son recurrentes en las letras, que a menudo se entregan con un estilo de rap rápido y sincopado. Artistas como Future, con álbumes como "DS2" y "Future Hndrxx Presents: The WIZRD", han consolidado el trap como un género dominante en la escena musical contemporánea. Su capacidad para conectar con una audiencia joven y global ha hecho que el trap traspase barreras culturales y lingüísticas, influenciando estilos de vida, moda y tendencias musicales en todo el mundo.
+
+                El trap no solo ha dejado una marca indeleble en la industria musical, sino que también ha redefinido la forma en que se crea y consume música en la era digital. Con plataformas como SoundCloud y YouTube facilitando la difusión de nuevos talentos, el trap ha democratizado el acceso a la fama y ha dado voz a una nueva generación de artistas innovadores. En resumen, el trap es más que un género musical; es un fenómeno cultural que continúa evolucionando y expandiendo sus fronteras. Con su capacidad para fusionar influencias y estilos, el trap sigue siendo relevante y emocionante para oyentes de todas las edades en todo el mundo.
+
+                La Influencia del Trap en la Cultura Popular
+                La influencia del trap se extiende más allá de la música, permeando en diversas facetas de la cultura popular. En la moda, el estilo trap se caracteriza por la ropa de calle y los accesorios llamativos, con marcas como Supreme y Off-White ganando popularidad entre los fanáticos del género. El trap también ha influenciado el cine y la televisión, con su presencia en bandas sonoras y temáticas que reflejan las realidades urbanas y los estilos de vida de los artistas.
+
+                Evolución y Diversificación del Trap
+                Desde sus inicios en Atlanta, el trap ha evolucionado y diversificado, incorporando elementos de otros géneros y adaptándose a diferentes culturas. En América Latina, el trap latino ha ganado prominencia con artistas como Bad Bunny y Anuel AA, quienes han fusionado el trap con reguetón y otros estilos locales. En Europa, el trap ha encontrado un hogar en la escena musical de países como Francia y España, donde artistas locales adaptan el sonido a sus propias experiencias y contextos.
+
+                Innovación y Experimentación en el Trap
+                El trap también ha sido un campo fértil para la innovación y la experimentación musical. Productores y artistas están constantemente empujando los límites del género, incorporando nuevas tecnologías y técnicas de producción. El uso de auto-tune, efectos digitales y beats complejos ha llevado a una evolución constante del sonido del trap. Artistas como Travis Scott y Young Thug son conocidos por su enfoque experimental, creando álbumes que desafían las expectativas y ofrecen nuevas direcciones para el género.
+
+                Impacto Social del Trap
+                El trap no solo es una forma de entretenimiento; también ha sido una plataforma para la expresión social y política. Muchos artistas de trap utilizan sus letras para abordar temas como la injusticia social, la desigualdad y las experiencias de marginalización. Esta capacidad para reflejar y comentar sobre la realidad social ha convertido al trap en una voz importante para las comunidades que a menudo no están representadas en los medios de comunicación tradicionales.
+
+                Colaboraciones y Crossovers
+                El trap ha facilitado colaboraciones entre artistas de diferentes géneros y países, rompiendo barreras y creando nuevas fusiones musicales. Estas colaboraciones han ayudado a popularizar el trap en audiencias más amplias y diversificadas. Por ejemplo, artistas de pop y R&B a menudo colaboran con raperos de trap, llevando el sonido a nuevas alturas y alcanzando a una audiencia global.
+
+                Futuro del Trap
+                El futuro del trap parece prometedor, con una nueva generación de artistas que continúan innovando y expandiendo el género. La accesibilidad de la producción musical digital ha permitido que más personas participen en la creación de música trap, asegurando una constante afluencia de nuevas ideas y estilos. Además, la globalización de la música y las plataformas digitales aseguran que el trap seguirá creciendo y adaptándose a nuevas culturas y contextos.
+
+                En resumen, el trap es un género dinámico y en constante evolución que ha dejado una huella significativa en la música y la cultura global. Su capacidad para innovar, adaptarse y reflejar la realidad social lo convierte en una forma de arte relevante y poderosa para las generaciones actuales y futuras.
             </p> 
         </div>
     {% elif detalle.id == 34 %} 
